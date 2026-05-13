@@ -1,0 +1,106 @@
+name: Daily Lighthouse Test McDrogerie
+
+on:
+  schedule:
+    - cron: '0 09 * * *'
+    - cron: '0 11 * * *'
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Home
+            url: https://www.mcdrogerie.ch/
+          - name: Editorial
+            url: https://www.mcdrogerie.ch/e/flohsamen-das-kleine-wundermittel-mit-grosser-wirkung
+          - name: PDP
+            url: https://www.mcdrogerie.ch/kijimea-reizdarm-pro-kapsel-84-stuck
+          - name: Category
+            url: https://www.mcdrogerie.ch/c/gesundheit-vitalitaet/
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Chromium
+        run: sudo apt-get install -y chromium-browser
+
+      - name: Install Lighthouse
+        run: npm install -g lighthouse
+
+      - name: Run Lighthouse
+        run: |
+          lighthouse "${{ matrix.url }}" \
+            --output json \
+            --output-path ./report.json \
+            --chrome-path=$(which chromium-browser) \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage --disable-gpu" \
+            --quiet
+
+      - name: Prüfe ob Report existiert
+        run: ls -la *.json
+
+      - name: Score als Artifact speichern
+        run: |
+          DATE=$(date +'%Y-%m-%d %H:%M')
+          PERF=$(python3 -c "import json; d=json.load(open('report.json')); print(int(d['categories']['performance']['score']*100))")
+          ACC=$(python3 -c "import json; d=json.load(open('report.json')); print(int(d['categories']['accessibility']['score']*100))")
+          SEO=$(python3 -c "import json; d=json.load(open('report.json')); print(int(d['categories']['seo']['score']*100))")
+          BP=$(python3 -c "import json; d=json.load(open('report.json')); print(int(d['categories']['best-practices']['score']*100))")
+          echo "{\"date\":\"$DATE\",\"page\":\"${{ matrix.name }}\",\"performance\":$PERF,\"accessibility\":$ACC,\"seo\":$SEO,\"best_practices\":$BP}" > score-${{ matrix.name }}.json
+          cat score-${{ matrix.name }}.json
+
+      - name: Artifact hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: score-${{ matrix.name }}
+          path: score-${{ matrix.name }}.json
+
+  update-results:
+    runs-on: ubuntu-latest
+    needs: lighthouse
+    if: always()
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Alle Score-Artifacts herunterladen
+        uses: actions/download-artifact@v4
+        with:
+          pattern: score-*
+          path: ./scores
+
+      - name: results.json aktualisieren
+        run: |
+          python3 - <<EOF
+          import json, glob
+          with open("docs/results.json") as f:
+              data = json.load(f)
+          for file in glob.glob("scores/score-*/*.json"):
+              print(f"Lese: {file}")
+              with open(file) as f:
+                  data.append(json.load(f))
+          with open("docs/results.json", "w") as f:
+              json.dump(data, f, indent=2)
+          print(f"Gesamt Einträge: {len(data)}")
+          EOF
+
+      - name: Commit & Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add docs/results.json
+          git commit -m "Lighthouse scores $(date +'%Y-%m-%d')" || echo "Keine Änderungen"
+          git push
