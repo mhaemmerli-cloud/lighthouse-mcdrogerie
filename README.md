@@ -1,6 +1,6 @@
 # lighthouse-mcdrogerie
 
-Link zum Dashboard: https://mhaemmerli-a11y.github.io/lighthouse-mcdrogerie/
+Link zum Dashboard: https://mhaemmerli-cloud.github.io/lighthouse-mcdrogerie/
 
 Workflow-Run startet täglicher Lighthouse Test un um 20h. 
 
