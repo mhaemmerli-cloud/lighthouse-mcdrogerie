@@ -2038,5 +2038,29 @@
     "accessibility": 96,
     "seo": 100,
     "best_practices": 75
+  },
+  {
+    "date": "2026-05-17 18:51",
+    "page": "PDP",
+    "performance": 35,
+    "accessibility": 97,
+    "seo": 100,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-05-17 18:51",
+    "page": "Category",
+    "performance": 54,
+    "accessibility": 96,
+    "seo": 100,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-05-17 18:51",
+    "page": "Home",
+    "performance": 38,
+    "accessibility": 96,
+    "seo": 100,
+    "best_practices": 75
   }
 ]
