@@ -5894,5 +5894,37 @@
     "accessibility": 97,
     "seo": 100,
     "best_practices": 75
+  },
+  {
+    "date": "2026-06-28 10:58",
+    "page": "Editorial",
+    "performance": 36,
+    "accessibility": 95,
+    "seo": 92,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-06-28 10:58",
+    "page": "Home",
+    "performance": 40,
+    "accessibility": 96,
+    "seo": 100,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-06-28 10:59",
+    "page": "PDP",
+    "performance": 31,
+    "accessibility": 92,
+    "seo": 100,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-06-28 10:59",
+    "page": "Category",
+    "performance": 62,
+    "accessibility": 97,
+    "seo": 100,
+    "best_practices": 75
   }
 ]
