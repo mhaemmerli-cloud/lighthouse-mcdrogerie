@@ -7342,5 +7342,29 @@
     "accessibility": 93,
     "seo": 100,
     "best_practices": 75
+  },
+  {
+    "date": "2026-07-13 13:17",
+    "page": "Editorial",
+    "performance": 54,
+    "accessibility": 91,
+    "seo": 92,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-07-13 13:18",
+    "page": "PDP",
+    "performance": 27,
+    "accessibility": 88,
+    "seo": 100,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-07-13 13:18",
+    "page": "Category",
+    "performance": 34,
+    "accessibility": 93,
+    "seo": 100,
+    "best_practices": 75
   }
 ]
