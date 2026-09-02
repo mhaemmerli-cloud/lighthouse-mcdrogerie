@@ -12182,5 +12182,29 @@
     "accessibility": 92,
     "seo": 100,
     "best_practices": 75
+  },
+  {
+    "date": "2026-09-02 20:13",
+    "page": "Category",
+    "performance": 52,
+    "accessibility": 93,
+    "seo": 100,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-09-02 20:13",
+    "page": "Editorial",
+    "performance": 28,
+    "accessibility": 92,
+    "seo": 92,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-09-02 20:12",
+    "page": "Home",
+    "performance": 50,
+    "accessibility": 93,
+    "seo": 100,
+    "best_practices": 75
   }
 ]
