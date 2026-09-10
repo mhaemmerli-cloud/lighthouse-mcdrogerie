@@ -12942,5 +12942,29 @@
     "accessibility": 93,
     "seo": 100,
     "best_practices": 75
+  },
+  {
+    "date": "2026-09-10 20:10",
+    "page": "PDP",
+    "performance": 36,
+    "accessibility": 88,
+    "seo": 100,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-09-10 20:10",
+    "page": "Home",
+    "performance": 47,
+    "accessibility": 93,
+    "seo": 100,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-09-10 20:10",
+    "page": "Category",
+    "performance": 62,
+    "accessibility": 93,
+    "seo": 100,
+    "best_practices": 75
   }
 ]
