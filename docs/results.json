@@ -13574,5 +13574,29 @@
     "accessibility": 93,
     "seo": 100,
     "best_practices": 75
+  },
+  {
+    "date": "2026-09-17 20:39",
+    "page": "Editorial",
+    "performance": 42,
+    "accessibility": 91,
+    "seo": 92,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-09-17 20:40",
+    "page": "Home",
+    "performance": 38,
+    "accessibility": 93,
+    "seo": 100,
+    "best_practices": 75
+  },
+  {
+    "date": "2026-09-17 20:39",
+    "page": "Category",
+    "performance": 56,
+    "accessibility": 93,
+    "seo": 100,
+    "best_practices": 75
   }
 ]
