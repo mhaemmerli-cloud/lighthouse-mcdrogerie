@@ -105,15 +105,103 @@
     }
     function safeid(p) { return p.replace(/[^a-z0-9]/gi, '-'); }
 
+    const METRICS = [
+  "performance",
+  "accessibility",
+  "seo",
+  "best_practices"
+];
+
+function aggregateDailyAverage(data) {
+  const groups = new Map();
+
+  data.forEach(item => {
+    // Erwartet beispielsweise:
+    // 2026-09-22 oder 2026-09-22T08:30:00Z
+    const day = String(item.date).slice(0, 10);
+    const key = `${item.page}__${day}`;
+
+    if (!groups.has(key)) {
+      groups.set(key, {
+        page: item.page,
+        date: day,
+        runs: 0,
+        sums: {
+          performance: 0,
+          accessibility: 0,
+          seo: 0,
+          best_practices: 0
+        },
+        counts: {
+          performance: 0,
+          accessibility: 0,
+          seo: 0,
+          best_practices: 0
+        }
+      });
+    }
+
+    const group = groups.get(key);
+    group.runs += 1;
+
+    METRICS.forEach(metric => {
+      const value = Number(item[metric]);
+
+      if (Number.isFinite(value)) {
+        group.sums[metric] += value;
+        group.counts[metric] += 1;
+      }
+    });
+  });
+
+  return Array.from(groups.values())
+    .map(group => {
+      const result = {
+        page: group.page,
+        date: group.date,
+        runs: group.runs
+      };
+
+      METRICS.forEach(metric => {
+        const count = group.counts[metric];
+
+        result[metric] = count
+          ? Math.round((group.sums[metric] / count) * 10) / 10
+          : null;
+      });
+
+      return result;
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
+}
+
     const state = {};
 
-    fetch("results.json")
-      .then(r => r.json())
-      .then(data => {
-        buildNav(data);
-        buildCharts(data);
-        buildAllTables(data);
-      });
+fetch("results.json")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`results.json konnte nicht geladen werden: ${response.status}`);
+    }
+
+    return response.json();
+  })
+  .then(rawData => {
+    const dailyData = aggregateDailyAverage(rawData);
+
+    buildNav(dailyData);
+    buildCharts(dailyData);
+    buildAllTables(dailyData);
+  })
+  .catch(error => {
+    console.error(error);
+
+    document.getElementById("charts-section").innerHTML = `
+      <div class="card">
+        <h2>Fehler beim Laden</h2>
+        <p>Die Resultate konnten nicht geladen oder verarbeitet werden.</p>
+      </div>
+    `;
+  });
 
     // ── Navigation ────────────────────────────────────────
     function buildNav(data) {
