@@ -2,8 +2,7 @@ name: Daily Lighthouse Test McDrogerie
 
 on:
   schedule:
-    # GitHub Actions verwendet UTC.
-    # Fuenf Messungen pro Kalendertag und URL.
+    # GitHub Actions verwendet UTC
     - cron: '0 07 * * *'
     - cron: '0 09 * * *'
     - cron: '0 11 * * *'
@@ -17,53 +16,77 @@ permissions:
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
+
     strategy:
       fail-fast: false
       matrix:
         include:
           - name: Home
             url: https://www.mcdrogerie.ch/
+
           - name: Editorial
             url: https://www.mcdrogerie.ch/e/flohsamen-das-kleine-wundermittel-mit-grosser-wirkung
+
           - name: PDP
-            url: https://www.mcdrogerie.ch/a/kijimea-reizdarm-pro-kapsel-84-stuck
+            url: https://www.mcdrogerie.ch/kijimea-reizdarm-pro-kapsel-84-stuck
+
           - name: Category
             url: https://www.mcdrogerie.ch/c/gesundheit-vitalitaet/
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-- name: Setup Node.js
-  uses: actions/setup-node@v4
-  with:
-    node-version: '22'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
 
-- name: Install Chrome
-  uses: browser-actions/setup-chrome@v1
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
 
-- name: Install Lighthouse
-  run: npm install -g lighthouse
+      - name: Verify Chrome Installation
+        run: |
+          which chrome
+          chrome --version
 
-- name: Run Lighthouse
-  run: |
-    lighthouse "${{ matrix.url }}" \
-      --output json \
-      --output-path ./report.json \
-      --chrome-path=$(which chrome) \
-      --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage --disable-gpu" \
-      --quiet
+      - name: Install Lighthouse
+        run: npm install -g lighthouse
 
-      - name: Pruefe ob Report existiert
-        run: ls -la *.json
+      - name: Run Lighthouse
+        run: |
+          lighthouse "${{ matrix.url }}" \
+            --output=json \
+            --output-path=./report.json \
+            --chrome-path=$(which chrome) \
+            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage --disable-gpu" \
+            --quiet
+
+      - name: Prüfe ob Report existiert
+        run: |
+          ls -la
+          ls -la report.json
 
       - name: Score als Artifact speichern
         run: |
-          DATE=$(date -u +'%Y-%m-%d %H:%M')
+          DATE=$(date -u +"%Y-%m-%d %H:%M")
+
           PERF=$(python3 -c "import json; d=json.load(open('report.json')); print(round(d['categories']['performance']['score']*100))")
           ACC=$(python3 -c "import json; d=json.load(open('report.json')); print(round(d['categories']['accessibility']['score']*100))")
           SEO=$(python3 -c "import json; d=json.load(open('report.json')); print(round(d['categories']['seo']['score']*100))")
           BP=$(python3 -c "import json; d=json.load(open('report.json')); print(round(d['categories']['best-practices']['score']*100))")
-          echo "{\"date\":\"$DATE\",\"page\":\"${{ matrix.name }}\",\"performance\":$PERF,\"accessibility\":$ACC,\"seo\":$SEO,\"best_practices\":$BP}" > score-${{ matrix.name }}.json
+
+          cat > score-${{ matrix.name }}.json << EOF
+          {
+            "date":"$DATE",
+            "page":"${{ matrix.name }}",
+            "performance":$PERF,
+            "accessibility":$ACC,
+            "seo":$SEO,
+            "best_practices":$BP
+          }
+          EOF
+
           cat score-${{ matrix.name }}.json
 
       - name: Artifact hochladen
@@ -78,7 +101,8 @@ jobs:
     if: always()
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Alle Score-Artifacts herunterladen
         uses: actions/download-artifact@v4
@@ -88,38 +112,37 @@ jobs:
 
       - name: results.json aktualisieren
         run: |
-          python3 - <<'EOF'
-          import glob
+          python3 << 'EOF'
           import json
-          from pathlib import Path
+          import glob
+          import os
 
-          results_path = Path("docs/results.json")
-          if results_path.exists():
-              with results_path.open(encoding="utf-8") as file:
-                  data = json.load(file)
+          results_file = "docs/results.json"
+
+          if os.path.exists(results_file):
+              with open(results_file, encoding="utf-8") as f:
+                  data = json.load(f)
           else:
               data = []
 
-          files = glob.glob("scores/score-*/*.json")
-          if not files:
-              raise SystemExit("Keine Score-Artifacts gefunden.")
+          for file in glob.glob("scores/score-*/*.json"):
+              print(f"Lese {file}")
+              with open(file, encoding="utf-8") as f:
+                  data.append(json.load(f))
 
-          for file_name in files:
-              print(f"Lese: {file_name}")
-              with open(file_name, encoding="utf-8") as file:
-                  data.append(json.load(file))
+          with open(results_file, "w", encoding="utf-8") as f:
+              json.dump(data, f, indent=2)
 
-          with results_path.open("w", encoding="utf-8") as file:
-              json.dump(data, file, indent=2, ensure_ascii=False)
-              file.write("\n")
-
-          print(f"Gesamt Eintraege: {len(data)}")
+          print(f"Gesamt Einträge: {len(data)}")
           EOF
 
       - name: Commit & Push
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
+
           git add docs/results.json
-          git commit -m "Lighthouse scores $(date -u +'%Y-%m-%d %H:%M UTC')" || echo "Keine Aenderungen"
+
+          git commit -m "Lighthouse scores $(date -u +'%Y-%m-%d %H:%M UTC')" || echo "Keine Änderungen"
+
           git push
