@@ -2,8 +2,12 @@ name: Daily Lighthouse Test McDrogerie
 
 on:
   schedule:
+    # GitHub Actions verwendet UTC.
+    # Fuenf Messungen pro Kalendertag und URL.
+    - cron: '0 07 * * *'
     - cron: '0 09 * * *'
     - cron: '0 11 * * *'
+    - cron: '0 15 * * *'
     - cron: '0 18 * * *'
   workflow_dispatch:
 
@@ -35,7 +39,7 @@ jobs:
           node-version: '20'
 
       - name: Install Chromium
-        run: sudo apt-get install -y chromium-browser
+        run: sudo apt-get update && sudo apt-get install -y chromium-browser
 
       - name: Install Lighthouse
         run: npm install -g lighthouse
@@ -49,16 +53,16 @@ jobs:
             --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage --disable-gpu" \
             --quiet
 
-      - name: Prüfe ob Report existiert
+      - name: Pruefe ob Report existiert
         run: ls -la *.json
 
       - name: Score als Artifact speichern
         run: |
-          DATE=$(date +'%Y-%m-%d %H:%M')
-          PERF=$(python3 -c "import json; d=json.load(open('report.json')); print(int(d['categories']['performance']['score']*100))")
-          ACC=$(python3 -c "import json; d=json.load(open('report.json')); print(int(d['categories']['accessibility']['score']*100))")
-          SEO=$(python3 -c "import json; d=json.load(open('report.json')); print(int(d['categories']['seo']['score']*100))")
-          BP=$(python3 -c "import json; d=json.load(open('report.json')); print(int(d['categories']['best-practices']['score']*100))")
+          DATE=$(date -u +'%Y-%m-%d %H:%M')
+          PERF=$(python3 -c "import json; d=json.load(open('report.json')); print(round(d['categories']['performance']['score']*100))")
+          ACC=$(python3 -c "import json; d=json.load(open('report.json')); print(round(d['categories']['accessibility']['score']*100))")
+          SEO=$(python3 -c "import json; d=json.load(open('report.json')); print(round(d['categories']['seo']['score']*100))")
+          BP=$(python3 -c "import json; d=json.load(open('report.json')); print(round(d['categories']['best-practices']['score']*100))")
           echo "{\"date\":\"$DATE\",\"page\":\"${{ matrix.name }}\",\"performance\":$PERF,\"accessibility\":$ACC,\"seo\":$SEO,\"best_practices\":$BP}" > score-${{ matrix.name }}.json
           cat score-${{ matrix.name }}.json
 
@@ -84,17 +88,32 @@ jobs:
 
       - name: results.json aktualisieren
         run: |
-          python3 - <<EOF
-          import json, glob
-          with open("docs/results.json") as f:
-              data = json.load(f)
-          for file in glob.glob("scores/score-*/*.json"):
-              print(f"Lese: {file}")
-              with open(file) as f:
-                  data.append(json.load(f))
-          with open("docs/results.json", "w") as f:
-              json.dump(data, f, indent=2)
-          print(f"Gesamt Einträge: {len(data)}")
+          python3 - <<'EOF'
+          import glob
+          import json
+          from pathlib import Path
+
+          results_path = Path("docs/results.json")
+          if results_path.exists():
+              with results_path.open(encoding="utf-8") as file:
+                  data = json.load(file)
+          else:
+              data = []
+
+          files = glob.glob("scores/score-*/*.json")
+          if not files:
+              raise SystemExit("Keine Score-Artifacts gefunden.")
+
+          for file_name in files:
+              print(f"Lese: {file_name}")
+              with open(file_name, encoding="utf-8") as file:
+                  data.append(json.load(file))
+
+          with results_path.open("w", encoding="utf-8") as file:
+              json.dump(data, file, indent=2, ensure_ascii=False)
+              file.write("\n")
+
+          print(f"Gesamt Eintraege: {len(data)}")
           EOF
 
       - name: Commit & Push
@@ -102,5 +121,5 @@ jobs:
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add docs/results.json
-          git commit -m "Lighthouse scores $(date +'%Y-%m-%d')" || echo "Keine Änderungen"
+          git commit -m "Lighthouse scores $(date -u +'%Y-%m-%d %H:%M UTC')" || echo "Keine Aenderungen"
           git push
