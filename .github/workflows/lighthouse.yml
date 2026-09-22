@@ -26,32 +26,32 @@ jobs:
           - name: Editorial
             url: https://www.mcdrogerie.ch/e/flohsamen-das-kleine-wundermittel-mit-grosser-wirkung
           - name: PDP
-            url: https://www.mcdrogerie.ch/kijimea-reizdarm-pro-kapsel-84-stuck
+            url: https://www.mcdrogerie.ch/a/kijimea-reizdarm-pro-kapsel-84-stuck
           - name: Category
             url: https://www.mcdrogerie.ch/c/gesundheit-vitalitaet/
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+- name: Setup Node.js
+  uses: actions/setup-node@v4
+  with:
+    node-version: '22'
 
-      - name: Install Chromium
-        run: sudo apt-get update && sudo apt-get install -y chromium-browser
+- name: Install Chrome
+  uses: browser-actions/setup-chrome@v1
 
-      - name: Install Lighthouse
-        run: npm install -g lighthouse
+- name: Install Lighthouse
+  run: npm install -g lighthouse
 
-      - name: Run Lighthouse
-        run: |
-          lighthouse "${{ matrix.url }}" \
-            --output json \
-            --output-path ./report.json \
-            --chrome-path=$(which chromium-browser) \
-            --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage --disable-gpu" \
-            --quiet
+- name: Run Lighthouse
+  run: |
+    lighthouse "${{ matrix.url }}" \
+      --output json \
+      --output-path ./report.json \
+      --chrome-path=$(which chrome) \
+      --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage --disable-gpu" \
+      --quiet
 
       - name: Pruefe ob Report existiert
         run: ls -la *.json
