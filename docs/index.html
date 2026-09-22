@@ -1,390 +1,100 @@
+
+
+<!-- Copyright (C) Microsoft Corporation. All rights reserved. -->
 <!DOCTYPE html>
-<html lang="de">
+<html dir="ltr" class="" lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Lighthouse Dashboard – mcdrogerie.ch</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body { font-family: sans-serif; max-width: 1400px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
-    h1 { color: #333; margin-bottom: 8px; }
+    <title>Bei Ihrem Konto anmelden</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <link rel="preconnect" href="https://aadcdn.msftauth.net" crossorigin>
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//aadcdn.msftauth.net">
+<link rel="dns-prefetch" href="//aadcdn.msauth.net">
 
-    /* Nav */
-    .nav { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
-    .nav a {
-      padding: 6px 14px; background: white; border: 1px solid #ddd;
-      border-radius: 20px; font-size: 0.85rem; color: #333; text-decoration: none;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-    .nav a:hover { background: #4CAF50; color: white; border-color: #4CAF50; }
+    <meta name="PageID" content="ConvergedSignIn" />
+    <meta name="SiteID" content="" />
+    <meta name="ReqLC" content="7" />
+    <meta name="LocLC" content="de" />
 
-    h2.section-title { color: #333; font-size: 1.3rem; margin-top: 48px; margin-bottom: 4px; }
 
-    /* Anchor links above tables */
-    .anchor-links { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
-    .anchor-links a {
-      padding: 5px 13px; background: white; border: 1px solid #ddd;
-      border-radius: 20px; font-size: 0.83rem; color: #333; text-decoration: none;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-    .anchor-links a:hover { background: #4CAF50; color: white; border-color: #4CAF50; }
+        <meta name="format-detection" content="telephone=no" />
 
-    /* Charts */
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .card { background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .card h2 { margin-top: 0; font-size: 1rem; color: #666; }
+    <noscript>
+        <meta http-equiv="Refresh" content="0; URL=https://login.microsoftonline.com/jsdisabled" />
+    </noscript>
 
-    /* Tables */
-    .table-wrap {
-      background: white; border-radius: 8px; padding: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow-x: auto; margin-bottom: 28px;
-    }
-    .table-wrap h3 { margin-top: 0; font-size: 1.05rem; color: #333; }
+    
+    
+<meta name="robots" content="none" />
 
-    .filter-bar { display: flex; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; align-items: center; }
-    .filter-bar select, .filter-bar input {
-      padding: 5px 9px; border: 1px solid #ccc; border-radius: 6px; font-size: 0.85rem;
-    }
-    .filter-bar label { font-size: 0.85rem; color: #555; }
+<script type="text/javascript" nonce='0f5PWxFrXJPah92t9zmfdg'>//<![CDATA[
+$Config={"fShowPersistentCookiesWarning":false,"urlMsaSignUp":"https://login.live.com/oauth20_authorize.srf?scope=openid+profile+email+offline_access\u0026response_type=code\u0026client_id=51483342-085c-4d86-bf88-cf50c7252078\u0026response_mode=form_post\u0026redirect_uri=https%3a%2f%2flogin.microsoftonline.com%2fcommon%2ffederation%2foauth2msa\u0026state=rQQIARAApVNPiOP2FbbGG8-MM9nMuKQ0hJZk2EPI1Ouf_stDJyDJkmytrbEl66exShn0b0a2_li2bI9Hy_awUJhDCpNAStkcAjm07BDIsrRl2VDaUlqaBNKFHpLsoSSUQjYsJCRps1AKxdtLj4E-eB_v8d73-N7hey6PXkS3L4D_Bl5eYBkcHKBlx1tU_xPjUnH9tZ03f7_2GQIOb9z869X6j-9fQ1b3w_7Mu-gMozPke_5kkqTblUriW-PIcvpeanvxtBwdX0x9a-wlw348WaxW9g-G4yituN6BNQ0nF600md9CkDsI8jGCnC2NGI4lKZIDNRawNE_RGFWjaiQl8qiAkwSPCjTFsjgQyRotEixHlAUUMCjPACCwdE3keIHAagRL0xwr0pzICzwPMArUmBrJYwQnCChdJVlcJAUSJTgcF-8uPb7LTic-toDhuJ95ny-tLjTuJ8N0ci3_i3O7NXAkD1rHbV3kupLfN4HIdXRZVbIG0QrFQEfDphWZnA6SntbXj9WoQVhwSMAMYpY07xldN_JCB1cMv2mDycyFoWQEjSN9D45aaHLkdp2wFZhZD-d6ti4qFkiAqyeKmfl-qx42YQQDXYeC3JUl1xAjuyvLHdzFDGPCu6jcsEB1z-3rx52AbO5KSsPF1aHSbcytOjyC3XBi1M3u7p4belGQGTUYKlBJu3WI6UIDwD2FNKOQMBf8WMB1LMi8MKkbMZdaGIFaYTJ0JFJVMnEqd2XeRhXU1h3UFcORGnIyFCachspGxyAv7Yq-aAr-sZu5ci8wu17gJg50WzDkQEv3fQtToYX67d2aQDiafqwOzI7NL3RXqcVvji7OTVA1LTFUjYf_wJ6TqYStB5htiLxpzKe9yBe1gcs7whAowBR0ACM7TPZUY45DDI6sgTnohFy3E7KY0j2cO3jSbBmHmA3IkRJymooqqNbtYc7D-0roDBSxJQDCqocxDMjYlqq-FnMGBGang6oBlMiaHfs-BCZlij28pS14YG7p1bAlhpxpJJkNyKYNkqmZ-ZzcVYRFnuW_lrFu5i8wHonSlFUtA4bBywRdtcsMRhFlzKMo1_EwBxDY2_nCMPHivnvnHPLJuTWQ315ZKa7nvpV7OvfgHPLaI6Xi-q--_Za6_NHG7o2fvfGHlSfP595-pOJiQ47Tkr0akC6NpX47dklNsivNyuyAjitsLxrIA2IwHfCCsAO20dMCcloonBbk08I3bhdWV_Lruc0830Y_KyAny7nbq_-XxX9aRO48itxYQ-6uocVVZ2iPrdjtu6ULKGq7DGDwMkN7oEygNlm2bZopA9shcIexGI-x7q4RxYITWv0oLT13ebPv7k-GgRdvbl_enEfpvuMsqpkVTr10c_v7m3wb3fzBlStXrj72ta7_9rHcg_O_-_X9N__5kz9-Wv_k8e9uUR1MHlxiFLUTOsQ0DWSNV3jpKN1SyFkSSBW7N9Fjr2-JxM6N9dyH67mzjb8vFZMikcvlwK1T7YsvPo7_tox9s7311fV_vPVu6clrz3cmz7zz1OSls59X7j3xFX5y795O5dqrj_7lX7BSesj64Dq9ap3sX07-vUlffb6jvb_06corP7p-KfvN6x-g4v4L_HsvwvvHpfpTpS9NeeOJ8dPIs0jpfDFvhYelZYGv1cuCtui92CktsxhJSXyrdAcp5q1kVvoTwrIsy-vQdwIltQw4daVDlmU5sQPSrLUYNvsdvdLOKIkecFnD0PkZPjrYkzO_YUYDUnX5elPCNW00cmaUuoe3iEFCdcEsSpgmqEyMZjVKlKPQ74tV2mmDvkI0tnTY7rFTphERRqLho8pYCeZquNXqVD0VTuekEBzawky1NF-AzkM5g_axKbYHZNqecBKmpCwDoRON1RhqM-9Aa6Q7tzdKxfXZyUcrR9YP67d--eeX177Te-HDjdyDjdP8SSn3Hw2\u0026estsfed=1\u0026uaid=c3bb3da2f00c300167b0b2de82488dec\u0026signup=1\u0026lw=1\u0026fl=easi2\u0026cobrandid=11bd8083-87e0-41b5-bb78-0bc43c8a8e8a\u0026fci=00000003-0000-0ff1-ce00-000000000000\u0026wsucxt=1","urlMsaLogout":"https://login.live.com/logout.srf?iframed_by=https%3a%2f%2flogin.microsoftonline.com","urlOtherIdpForget":"https://login.live.com/forgetme.srf?iframed_by=https%3a%2f%2flogin.microsoftonline.com","showCantAccessAccountLink":true,"arrExternalTrustedRealmFederatedIdps":[{"IdpType":400,"IdpSignInUrl":"https://login.live.com/oauth20_authorize.srf?scope=openid+profile+email+offline_access\u0026response_type=code\u0026client_id=51483342-085c-4d86-bf88-cf50c7252078\u0026response_mode=form_post\u0026redirect_uri=https%3a%2f%2flogin.microsoftonline.com%2fcommon%2ffederation%2foauth2msa\u0026state=rQQIARAApVNPiOP2FbbGG8-MM9nMuKQ0hJZk2EPI1Ouf_stDJyDJkmytrbEl66exShn0b0a2_li2bI9Hy_awUJhDCpNAStkcAjm07BDIsrRl2VDaUlqaBNKFHpLsoSSUQjYsJCRps1AKxdtLj4E-eB_v8d73-N7hey6PXkS3L4D_Bl5eYBkcHKBlx1tU_xPjUnH9tZ03f7_2GQIOb9z869X6j-9fQ1b3w_7Mu-gMozPke_5kkqTblUriW-PIcvpeanvxtBwdX0x9a-wlw348WaxW9g-G4yituN6BNQ0nF600md9CkDsI8jGCnC2NGI4lKZIDNRawNE_RGFWjaiQl8qiAkwSPCjTFsjgQyRotEixHlAUUMCjPACCwdE3keIHAagRL0xwr0pzICzwPMArUmBrJYwQnCChdJVlcJAUSJTgcF-8uPb7LTic-toDhuJ95ny-tLjTuJ8N0ci3_i3O7NXAkD1rHbV3kupLfN4HIdXRZVbIG0QrFQEfDphWZnA6SntbXj9WoQVhwSMAMYpY07xldN_JCB1cMv2mDycyFoWQEjSN9D45aaHLkdp2wFZhZD-d6ti4qFkiAqyeKmfl-qx42YQQDXYeC3JUl1xAjuyvLHdzFDGPCu6jcsEB1z-3rx52AbO5KSsPF1aHSbcytOjyC3XBi1M3u7p4belGQGTUYKlBJu3WI6UIDwD2FNKOQMBf8WMB1LMi8MKkbMZdaGIFaYTJ0JFJVMnEqd2XeRhXU1h3UFcORGnIyFCachspGxyAv7Yq-aAr-sZu5ci8wu17gJg50WzDkQEv3fQtToYX67d2aQDiafqwOzI7NL3RXqcVvji7OTVA1LTFUjYf_wJ6TqYStB5htiLxpzKe9yBe1gcs7whAowBR0ACM7TPZUY45DDI6sgTnohFy3E7KY0j2cO3jSbBmHmA3IkRJymooqqNbtYc7D-0roDBSxJQDCqocxDMjYlqq-FnMGBGang6oBlMiaHfs-BCZlij28pS14YG7p1bAlhpxpJJkNyKYNkqmZ-ZzcVYRFnuW_lrFu5i8wHonSlFUtA4bBywRdtcsMRhFlzKMo1_EwBxDY2_nCMPHivnvnHPLJuTWQ315ZKa7nvpV7OvfgHPLaI6Xi-q--_Za6_NHG7o2fvfGHlSfP595-pOJiQ47Tkr0akC6NpX47dklNsivNyuyAjitsLxrIA2IwHfCCsAO20dMCcloonBbk08I3bhdWV_Lruc0830Y_KyAny7nbq_-XxX9aRO48itxYQ-6uocVVZ2iPrdjtu6ULKGq7DGDwMkN7oEygNlm2bZopA9shcIexGI-x7q4RxYITWv0oLT13ebPv7k-GgRdvbl_enEfpvuMsqpkVTr10c_v7m3wb3fzBlStXrj72ta7_9rHcg_O_-_X9N__5kz9-Wv_k8e9uUR1MHlxiFLUTOsQ0DWSNV3jpKN1SyFkSSBW7N9Fjr2-JxM6N9dyH67mzjb8vFZMikcvlwK1T7YsvPo7_tox9s7311fV_vPVu6clrz3cmz7zz1OSls59X7j3xFX5y795O5dqrj_7lX7BSesj64Dq9ap3sX07-vUlffb6jvb_06corP7p-KfvN6x-g4v4L_HsvwvvHpfpTpS9NeeOJ8dPIs0jpfDFvhYelZYGv1cuCtui92CktsxhJSXyrdAcp5q1kVvoTwrIsy-vQdwIltQw4daVDlmU5sQPSrLUYNvsdvdLOKIkecFnD0PkZPjrYkzO_YUYDUnX5elPCNW00cmaUuoe3iEFCdcEsSpgmqEyMZjVKlKPQ74tV2mmDvkI0tnTY7rFTphERRqLho8pYCeZquNXqVD0VTuekEBzawky1NF-AzkM5g_axKbYHZNqecBKmpCwDoRON1RhqM-9Aa6Q7tzdKxfXZyUcrR9YP67d--eeX177Te-HDjdyDjdP8SSn3Hw2\u0026estsfed=1\u0026uaid=c3bb3da2f00c300167b0b2de82488dec\u0026cobrandid=11bd8083-87e0-41b5-bb78-0bc43c8a8e8a\u0026fci=00000003-0000-0ff1-ce00-000000000000\u0026wsucxt=1\u0026idp_hint=github.com","DisplayName":"GitHub","Promoted":false}],"fEnableShowResendCode":true,"iShowResendCodeDelay":90000,"sSMSCtryPhoneData":"AF~Afghanistan~93!!!EG~Ägypten~20!!!AX~Ålandinseln~358!!!AL~Albanien~355!!!DZ~Algerien~213!!!VI~Amerikanische Jungferninseln~1!!!AS~Amerikanisch-Samoa~1!!!AD~Andorra~376!!!AO~Angola~244!!!AI~Anguilla~1!!!AG~Antigua und Barbuda~1!!!GQ~Äquatorialguinea~240!!!AR~Argentinien~54!!!AM~Armenien~374!!!AW~Aruba~297!!!AC~Ascension~247!!!AZ~Aserbaidschan~994!!!ET~Äthiopien~251!!!AU~Australien~61!!!BS~Bahamas~1!!!BH~Bahrain~973!!!BD~Bangladesch~880!!!BB~Barbados~1!!!BE~Belgien~32!!!BZ~Belize~501!!!BJ~Benin~229!!!BM~Bermuda~1!!!BT~Bhutan~975!!!BO~Bolivien~591!!!BQ~Bonaire~599!!!BA~Bosnien und Herzegowina~387!!!BW~Botsuana~267!!!BR~Brasilien~55!!!VG~Britische Jungferninseln~1!!!IO~Britisches Territorium im Indischen Ozean~246!!!BN~Brunei Darussalam~673!!!BG~Bulgarien~359!!!BF~Burkina Faso~226!!!BI~Burundi~257!!!CV~Cabo Verde~238!!!CL~Chile~56!!!CN~China~86!!!CK~Cookinseln~682!!!CR~Costa Rica~506!!!CI~Côte d’Ivoire~225!!!CW~Curaçao~599!!!DK~Dänemark~45!!!KP~Demokratische Volksrepublik Korea~850!!!DE~Deutschland~49!!!DM~Dominica~1!!!DO~Dominikanische Republik~1!!!DJ~Dschibuti~253!!!EC~Ecuador~593!!!SV~El Salvador~503!!!ER~Eritrea~291!!!EE~Estland~372!!!FK~Falklandinseln~500!!!FO~Färöer Inseln~298!!!FJ~Fidschi~679!!!FI~Finnland~358!!!FR~Frankreich~33!!!GF~Französisch-Guayana~594!!!PF~Französisch-Polynesien~689!!!GA~Gabun~241!!!GM~Gambia~220!!!GE~Georgien~995!!!GH~Ghana~233!!!GI~Gibraltar~350!!!GD~Grenada~1!!!GR~Griechenland~30!!!GL~Grönland~299!!!GP~Guadeloupe~590!!!GU~Guam~1!!!GT~Guatemala~502!!!GG~Guernsey~44!!!GN~Guinea~224!!!GW~Guinea-Bissau~245!!!GY~Guyana~592!!!HT~Haiti~509!!!HN~Honduras~504!!!HK~Hongkong SAR~852!!!IN~Indien~91!!!ID~Indonesien~62!!!IQ~Irak~964!!!IR~Iran~98!!!IE~Irland~353!!!IS~Island~354!!!IM~Isle of Man~44!!!IL~Israel~972!!!IT~Italien~39!!!JM~Jamaika~1!!!JP~Japan~81!!!YE~Jemen~967!!!JE~Jersey~44!!!JO~Jordanien~962!!!KY~Kaimaninseln~1!!!KH~Kambodscha~855!!!CM~Kamerun~237!!!CA~Kanada~1!!!KZ~Kasachstan~7!!!QA~Katar~974!!!KE~Kenia~254!!!KG~Kirgisistan~996!!!KI~Kiribati~686!!!CC~Kokosinseln~61!!!CO~Kolumbien~57!!!KM~Komoren~269!!!CG~Kongo~242!!!CD~Kongo, Demokratische Republik~243!!!HR~Kroatien~385!!!CU~Kuba~53!!!KW~Kuwait~965!!!LA~Laos~856!!!LS~Lesotho~266!!!LV~Lettland~371!!!LB~Libanon~961!!!LR~Liberia~231!!!LY~Libyen~218!!!LI~Liechtenstein~423!!!LT~Litauen~370!!!LU~Luxemburg~352!!!MO~Macau (SAR)~853!!!MG~Madagaskar~261!!!MW~Malawi~265!!!MY~Malaysia~60!!!MV~Malediven~960!!!ML~Mali~223!!!MT~Malta~356!!!MA~Marokko~212!!!MH~Marshallinseln~692!!!MQ~Martinique~596!!!MR~Mauretanien~222!!!MU~Mauritius~230!!!YT~Mayotte~262!!!MX~Mexiko~52!!!FM~Mikronesien~691!!!MC~Monaco~377!!!MN~Mongolei~976!!!ME~Montenegro~382!!!MS~Montserrat~1!!!MZ~Mosambik~258!!!MM~Myanmar~95!!!NA~Namibia~264!!!NR~Nauru~674!!!NP~Nepal~977!!!NC~Neukaledonien~687!!!NZ~Neuseeland~64!!!NI~Nicaragua~505!!!NL~Niederlande~31!!!NE~Niger~227!!!NG~Nigeria~234!!!NU~Niue~683!!!MP~Nördliche Marianen~1!!!MK~Nordmazedonien~389!!!NF~Norfolkinsel~672!!!NO~Norwegen~47!!!OM~Oman~968!!!AT~Österreich~43!!!PK~Pakistan~92!!!PS~Palästinensische Behörde~970!!!PW~Palau~680!!!PA~Panama~507!!!PG~Papua-Neuguinea~675!!!PY~Paraguay~595!!!PE~Peru~51!!!PH~Philippinen~63!!!PL~Polen~48!!!PT~Portugal~351!!!PR~Puerto Rico~1!!!BY~Republik Belarus~375!!!KR~Republik Korea~82!!!MD~Republik Moldau~373!!!RE~Réunion~262!!!RW~Ruanda~250!!!RO~Rumänien~40!!!RU~Russische Föderation~7!!!BL~Saint-Barthélemy~590!!!SB~Salomonen~677!!!ZM~Sambia~260!!!WS~Samoa~685!!!SM~San Marino~378!!!ST~São Tomé und Príncipe~239!!!SA~Saudi-Arabien~966!!!SE~Schweden~46!!!CH~Schweiz~41!!!SN~Senegal~221!!!RS~Serbien~381!!!SC~Seychellen~248!!!SL~Sierra Leone~232!!!ZW~Simbabwe~263!!!SG~Singapur~65!!!SK~Slowakei~421!!!SI~Slowenien~386!!!SO~Somalia~252!!!ES~Spanien~34!!!SJ~Spitzbergen~47!!!LK~Sri Lanka~94!!!SH~St. Helena, Ascension und Tristan da Cunha~290!!!KN~St. Kitts und Nevis~1!!!LC~St. Lucia~1!!!SX~St. Maarten~1!!!MF~St. Martin~590!!!PM~St. Pierre und Miquelon~508!!!VC~St. Vincent und die Grenadinen~1!!!ZA~Südafrika~27!!!SD~Sudan~249!!!SS~Südsudan~211!!!SR~Suriname~597!!!SZ~Swasiland~268!!!SY~Syrien~963!!!TJ~Tadschikistan~992!!!TW~Taiwan~886!!!TZ~Tansania~255!!!TH~Thailand~66!!!TL~Timor-Leste~670!!!TG~Togo~228!!!TK~Tokelau~690!!!TO~Tonga~676!!!TT~Trinidad und Tobago~1!!!TA~Tristan da Cunha~290!!!TD~Tschad~235!!!CZ~Tschechien~420!!!TN~Tunesien~216!!!TR~Türkei~90!!!TM~Turkmenistan~993!!!TC~Turks- und Caicosinseln~1!!!TV~Tuvalu~688!!!UG~Uganda~256!!!UA~Ukraine~380!!!HU~Ungarn~36!!!UY~Uruguay~598!!!UZ~Usbekistan~998!!!VU~Vanuatu~678!!!VA~Vatikanstadt~39!!!VE~Venezuela~58!!!AE~Vereinigte Arabische Emirate~971!!!US~Vereinigte Staaten von Amerika~1!!!GB~Vereinigtes Königreich~44!!!VN~Vietnam~84!!!WF~Wallis und Futuna~681!!!CX~Weihnachtsinsel~61!!!CF~Zentralafrikanische Republik~236!!!CY~Zypern~357","fUseInlinePhoneNumber":true,"fDetectBrowserCapabilities":true,"fUseMinHeight":true,"fShouldSupportTargetCredentialForRecovery":true,"fAvoidNewOtcGenerationWhenAlreadySent":true,"fEnableProofTypeValidation":true,"fUseCertificateInterstitialView":true,"fIsPasskeySupportEnabled":true,"arrPromotedFedCredTypes":[],"fShowUserAlreadyExistErrorHandling":true,"fBlockOnAppleEmailClaimError":true,"fIsVerifiableCredentialsSupportEnabled":true,"iVerifiableCredentialPresentationPollingIntervalSeconds":0.5,"iVerifiableCredentialPresentationPollingTimeoutSeconds":300,"fIsQrPinEnabled":true,"fPasskeyAssertionRedirect":true,"fShowProgressForPasskeyAutofill":true,"fFixUrlExternalIdpFederation":true,"fEnableBackButtonBugFix":true,"fEnableTotalLossRecovery":true,"fUpdatePromotedCredTypesOrder":true,"fUseNewPromotedCredsComponent":true,"fEnableGctCredentialTelemetry":true,"urlSessionState":"https://login.microsoftonline.com/common/DeviceCodeStatus","urlResetPassword":"https://passwordreset.microsoftonline.com/?ru=https%3a%2f%2flogin.microsoftonline.com%2f8e5176a9-0883-479b-8264-2e66dce2c042%2freprocess%3fctx%3drQQIARAApVNdiOPmFbXGG8-MM9nMuKQ0hIZ02IeSqdef_uWhE5BkSbbW1tiS9WmsUgb9zcjWj2XL9ni0bB4WAvOQwLTQELYPhTwk7BDoEtqybChJKS1NCu1CH9rsQ0kohWxYSGiaZCEEgjcvfQz0wj3cy-Uczn04T-fRi-j2BfB14eUFlsHBAVp2vMX0PzUuFddf3nnj92sfI-Dwxuv_vFp_4d4Z8kN_MknS7Uol8a1xZDl9L7W9eFqOji-mvjX2kmE_nlx0hlFl_2A4jtKK6x1Y03By0UqT-U0EuY0gHyDI2dKI4ViSIjlQYwFL8xSNUTWqRlIijwo4SfCoQFMsiwORrNEiwXJEWUABg_IMAAJL10SOFwisRrA0zbEizYm8wPMAo0CNqZE8RnCCgNJVksVFUiBRgsNx8c7So7vsdOJjCxiO-5n3n6XVhcf9ZJhOruV_dW63Bo7kQeu4rYtcV_L7JhC5ji6rStYgWqEY6GjYtCKT00HS0_r6sRo1CAsOCZhBzJLmPaPrRl7o4IrhN20wmbkwlIygcaTvwVELTY7crhO2AjPr4VzP1kXFAglw9UQxM99v1cMmjGCg61CQu7LkGmJkd2W5g7uYYUx4F5UbFqjuuX39uBOQzV1Jabi4OlS6jblVh0ewG06Mutnd3XNDLwoyowZDBSpptw4xXWgAuKeQZhQS5oIfC7iOBZkXJnUj5lILI1ArTIaORKpKJk7lrszbqILauoO6YjhSQ06GwoTTUNnoGOSlXdEXTcE_djNX7gVm1wvcxIFuC4YcaOm-b2EqtFC_vVsTCEfTj9WB2bH5he8qtfjN0cW5CaqmJYaq8eAf2HMylbD1ALMNkTeN-bQX-aI2cHlHGAIFmIIOYGSHyZ5qzHGIwZE1MAedkOt2QhZTuodzB0-aLeMQswE5UkJOU1EF1bo9zHmgr4TOQBFbAiCsehjDgIxtqeprMWdAYHY6qBpAiazZse9DYFKm2MNb2oIH5pZeDVtiyJlGktmAbNogmZqZz8ldRVj0Wf4bhen1_AXGI1GasqplwDB4maCrdpnBKKKMeRTlOh7mAAJ7J18YJl7cd2-fQz48twby2ysrxfXcd3JP5e6fQ15-qFRc_81331aX39_YvfHKL_-w8vj53DsPVVxsyHFaslcD0qWx1G_HLqlJdqVZmR3QcYXtRQN5QAymA14QdsA2elpATguF04J8WvjWrcLqSn49t5nn2-jHBeRkOXdr9f-K-EtF5PbDyJ01tLjqDO2xFbt9t3QBRW2XAQxeZmgPlAnUJsu2TTNlYDsE7jAW4zHWnTWiWHBCqx-lpacvb_bd_ckw8OLN7cub8yjdd5zFNLPCqZdubv9ok2-jmz--cuXK1Ue-kfpbj-Tun__db--98dmLf_yo_uGjP9iiOpg8uMQoaid0iGkayBqv8NJRuqWQsySQKnZvosde3xKJnRvruffWc2cb_14qJkUil8uBm6faJ598EP9rGft2e-vz65--_ZfS49ee6Uy-9-cnJj89e7Vy97HP8ZO7d3cq137x8N--gJXSA9a71-lV62T_cvLlJn31mY72j6WPVn7-3PVL2ZuvvYuK-8_zf_8JvHdcqj9R-q8pbzw2fgr5PlI6X8xb4WFpWeBr9bKgLXYvdkrLLEZSEt8q3UaKeSuZlf6EsCzL8jr0nUBJLQNOXemQZVlO7IA0ay2OzX5Hr7QzSqIHXNYwdH6Gjw725MxvmNGAVF2-3pRwTRuNnBml7uEtYpBQXTCLEqYJKhOjWY0S5Sj0-2KVdtqgrxCNLR22e-yUaUSEkWj4qDJWgrkabrU6VU-F0zkpBIe2MFMtzReg88DOoH1siu0BmbYnnIQpKctA6ERjNYbazDvQGunOrY1ScX128v7KkfVs_eav__qztSd7z7-3kbu_cZo_KeW-Ag2\u0026mkt=de\u0026hosted=0\u0026device_platform=Windows+10","urlMsaResetPassword":"https://account.live.com/password/reset?wreply=https%3a%2f%2flogin.microsoftonline.com%2f8e5176a9-0883-479b-8264-2e66dce2c042%2freprocess%3fctx%3drQQIARAApVNdiOPmFbXGG8-MM9nMuKQ0hIZ02IeSqdef_uWhE5BkSbbW1tiS9WmsUgb9zcjWj2XL9ni0bB4WAvOQwLTQELYPhTwk7BDoEtqybChJKS1NCu1CH9rsQ0kohWxYSGiaZCEEgjcvfQz0wj3cy-Uczn04T-fRi-j2BfB14eUFlsHBAVp2vMX0PzUuFddf3nnj92sfI-Dwxuv_vFp_4d4Z8kN_MknS7Uol8a1xZDl9L7W9eFqOji-mvjX2kmE_nlx0hlFl_2A4jtKK6x1Y03By0UqT-U0EuY0gHyDI2dKI4ViSIjlQYwFL8xSNUTWqRlIijwo4SfCoQFMsiwORrNEiwXJEWUABg_IMAAJL10SOFwisRrA0zbEizYm8wPMAo0CNqZE8RnCCgNJVksVFUiBRgsNx8c7So7vsdOJjCxiO-5n3n6XVhcf9ZJhOruV_dW63Bo7kQeu4rYtcV_L7JhC5ji6rStYgWqEY6GjYtCKT00HS0_r6sRo1CAsOCZhBzJLmPaPrRl7o4IrhN20wmbkwlIygcaTvwVELTY7crhO2AjPr4VzP1kXFAglw9UQxM99v1cMmjGCg61CQu7LkGmJkd2W5g7uYYUx4F5UbFqjuuX39uBOQzV1Jabi4OlS6jblVh0ewG06Mutnd3XNDLwoyowZDBSpptw4xXWgAuKeQZhQS5oIfC7iOBZkXJnUj5lILI1ArTIaORKpKJk7lrszbqILauoO6YjhSQ06GwoTTUNnoGOSlXdEXTcE_djNX7gVm1wvcxIFuC4YcaOm-b2EqtFC_vVsTCEfTj9WB2bH5he8qtfjN0cW5CaqmJYaq8eAf2HMylbD1ALMNkTeN-bQX-aI2cHlHGAIFmIIOYGSHyZ5qzHGIwZE1MAedkOt2QhZTuodzB0-aLeMQswE5UkJOU1EF1bo9zHmgr4TOQBFbAiCsehjDgIxtqeprMWdAYHY6qBpAiazZse9DYFKm2MNb2oIH5pZeDVtiyJlGktmAbNogmZqZz8ldRVj0Wf4bhen1_AXGI1GasqplwDB4maCrdpnBKKKMeRTlOh7mAAJ7J18YJl7cd2-fQz48twby2ysrxfXcd3JP5e6fQ15-qFRc_81331aX39_YvfHKL_-w8vj53DsPVVxsyHFaslcD0qWx1G_HLqlJdqVZmR3QcYXtRQN5QAymA14QdsA2elpATguF04J8WvjWrcLqSn49t5nn2-jHBeRkOXdr9f-K-EtF5PbDyJ01tLjqDO2xFbt9t3QBRW2XAQxeZmgPlAnUJsu2TTNlYDsE7jAW4zHWnTWiWHBCqx-lpacvb_bd_ckw8OLN7cub8yjdd5zFNLPCqZdubv9ok2-jmz--cuXK1Ue-kfpbj-Tun__db--98dmLf_yo_uGjP9iiOpg8uMQoaid0iGkayBqv8NJRuqWQsySQKnZvosde3xKJnRvruffWc2cb_14qJkUil8uBm6faJ598EP9rGft2e-vz65--_ZfS49ee6Uy-9-cnJj89e7Vy97HP8ZO7d3cq137x8N--gJXSA9a71-lV62T_cvLlJn31mY72j6WPVn7-3PVL2ZuvvYuK-8_zf_8JvHdcqj9R-q8pbzw2fgr5PlI6X8xb4WFpWeBr9bKgLXYvdkrLLEZSEt8q3UaKeSuZlf6EsCzL8jr0nUBJLQNOXemQZVlO7IA0ay2OzX5Hr7QzSqIHXNYwdH6Gjw725MxvmNGAVF2-3pRwTRuNnBml7uEtYpBQXTCLEqYJKhOjWY0S5Sj0-2KVdtqgrxCNLR22e-yUaUSEkWj4qDJWgrkabrU6VU-F0zkpBIe2MFMtzReg88DOoH1siu0BmbYnnIQpKctA6ERjNYbazDvQGunOrY1ScX128v7KkfVs_eav__qztSd7z7-3kbu_cZo_KeW-Ag2\u0026mkt=de","fFixUrlResetPassword":true,"urlGetCredentialType":"https://login.microsoftonline.com/common/GetCredentialType?mkt=de","urlGetRecoveryCredentialType":"https://login.microsoftonline.com/common/getrecoverycredentialtype?mkt=de","urlGetOneTimeCode":"https://login.microsoftonline.com/common/GetOneTimeCode","urlLogout":"https://login.microsoftonline.com/8e5176a9-0883-479b-8264-2e66dce2c042/uxlogout","urlForget":"https://login.microsoftonline.com/forgetuser","urlDisambigRename":"https://go.microsoft.com/fwlink/p/?LinkID=733247","urlGoToAADError":"https://login.live.com/oauth20_authorize.srf?scope=openid+profile+email+offline_access\u0026response_type=code\u0026client_id=51483342-085c-4d86-bf88-cf50c7252078\u0026response_mode=form_post\u0026redirect_uri=https%3a%2f%2flogin.microsoftonline.com%2fcommon%2ffederation%2foauth2msa\u0026state=rQQIARAApVNPiOP2FbbGG8-MM9nMuKQ0hJZk2EPI1Ouf_stDJyDJkmytrbEl66exShn0b0a2_li2bI9Hy_awUJhDCpNAStkcAjm07BDIsrRl2VDaUlqaBNKFHpLsoSSUQjYsJCRps1AKxdtLj4E-eB_v8d73-N7hey6PXkS3L4D_Bl5eYBkcHKBlx1tU_xPjUnH9tZ03f7_2GQIOb9z869X6j-9fQ1b3w_7Mu-gMozPke_5kkqTblUriW-PIcvpeanvxtBwdX0x9a-wlw348WaxW9g-G4yituN6BNQ0nF600md9CkDsI8jGCnC2NGI4lKZIDNRawNE_RGFWjaiQl8qiAkwSPCjTFsjgQyRotEixHlAUUMCjPACCwdE3keIHAagRL0xwr0pzICzwPMArUmBrJYwQnCChdJVlcJAUSJTgcF-8uPb7LTic-toDhuJ95ny-tLjTuJ8N0ci3_i3O7NXAkD1rHbV3kupLfN4HIdXRZVbIG0QrFQEfDphWZnA6SntbXj9WoQVhwSMAMYpY07xldN_JCB1cMv2mDycyFoWQEjSN9D45aaHLkdp2wFZhZD-d6ti4qFkiAqyeKmfl-qx42YQQDXYeC3JUl1xAjuyvLHdzFDGPCu6jcsEB1z-3rx52AbO5KSsPF1aHSbcytOjyC3XBi1M3u7p4belGQGTUYKlBJu3WI6UIDwD2FNKOQMBf8WMB1LMi8MKkbMZdaGIFaYTJ0JFJVMnEqd2XeRhXU1h3UFcORGnIyFCachspGxyAv7Yq-aAr-sZu5ci8wu17gJg50WzDkQEv3fQtToYX67d2aQDiafqwOzI7NL3RXqcVvji7OTVA1LTFUjYf_wJ6TqYStB5htiLxpzKe9yBe1gcs7whAowBR0ACM7TPZUY45DDI6sgTnohFy3E7KY0j2cO3jSbBmHmA3IkRJymooqqNbtYc7D-0roDBSxJQDCqocxDMjYlqq-FnMGBGang6oBlMiaHfs-BCZlij28pS14YG7p1bAlhpxpJJkNyKYNkqmZ-ZzcVYRFnuW_lrFu5i8wHonSlFUtA4bBywRdtcsMRhFlzKMo1_EwBxDY2_nCMPHivnvnHPLJuTWQ315ZKa7nvpV7OvfgHPLaI6Xi-q--_Za6_NHG7o2fvfGHlSfP595-pOJiQ47Tkr0akC6NpX47dklNsivNyuyAjitsLxrIA2IwHfCCsAO20dMCcloonBbk08I3bhdWV_Lruc0830Y_KyAny7nbq_-XxX9aRO48itxYQ-6uocVVZ2iPrdjtu6ULKGq7DGDwMkN7oEygNlm2bZopA9shcIexGI-x7q4RxYITWv0oLT13ebPv7k-GgRdvbl_enEfpvuMsqpkVTr10c_v7m3wb3fzBlStXrj72ta7_9rHcg_O_-_X9N__5kz9-Wv_k8e9uUR1MHlxiFLUTOsQ0DWSNV3jpKN1SyFkSSBW7N9Fjr2-JxM6N9dyH67mzjb8vFZMikcvlwK1T7YsvPo7_tox9s7311fV_vPVu6clrz3cmz7zz1OSls59X7j3xFX5y795O5dqrj_7lX7BSesj64Dq9ap3sX07-vUlffb6jvb_06corP7p-KfvN6x-g4v4L_HsvwvvHpfpTpS9NeeOJ8dPIs0jpfDFvhYelZYGv1cuCtui92CktsxhJSXyrdAcp5q1kVvoTwrIsy-vQdwIltQw4daVDlmU5sQPSrLUYNvsdvdLOKIkecFnD0PkZPjrYkzO_YUYDUnX5elPCNW00cmaUuoe3iEFCdcEsSpgmqEyMZjVKlKPQ74tV2mmDvkI0tnTY7rFTphERRqLho8pYCeZquNXqVD0VTuekEBzawky1NF-AzkM5g_axKbYHZNqecBKmpCwDoRON1RhqM-9Aa6Q7tzdKxfXZyUcrR9YP67d--eeX177Te-HDjdyDjdP8SSn3Hw2\u0026estsfed=1\u0026uaid=c3bb3da2f00c300167b0b2de82488dec\u0026cobrandid=11bd8083-87e0-41b5-bb78-0bc43c8a8e8a\u0026fci=00000003-0000-0ff1-ce00-000000000000\u0026wsucxt=1","urlDeviceFingerprinting":"","urlPIAEndAuth":"https://login.microsoftonline.com/common/PIA/EndAuth","urlStartTlr":"https://login.microsoftonline.com/8e5176a9-0883-479b-8264-2e66dce2c042/tlr/start","fKMSIEnabled":false,"iLoginMode":121,"fAllowPhoneSignIn":true,"fAllowPhoneInput":true,"fAllowSkypeNameLogin":true,"iMaxPollErrors":5,"iPollingTimeout":300,"srsSuccess":true,"fShowSwitchUser":true,"arrValErrs":["50058"],"sErrorCode":"50058","sWAMExtension":"ppnbnpeolgkicgegkbkbjmhlideopiji","sWAMChannel":"53ee284d-920a-4b59-9d30-a60315b26836","sErrTxt":"","sResetPasswordPrefillParam":"username","onPremPasswordValidationConfig":{"isUserRealmPrecheckEnabled":true},"fSwitchDisambig":true,"oCancelPostParams":{"error":"access_denied","error_subcode":"cancel","state":"OD0wJjMyPUFBTGhiZ0FBQUJRNzI4MlFkU1lLamZBU0pYSiUyRmI4aVo4VzV2aGxYWTdmelc3NWhLb0tvdVlGWkIwUXVqM1pwdTclMkZzY3BYbUFNa0p0dUpNZzhhMHlLVmVkUUVEJTJGdWFmbTJJQ3d2WWtCd1JIa09XdiUyQk5LOGNId3RoNTIxaHVwVTltWHZTOXdlemkzWDVlNVNsTHV2UEI0VXN5Zml4ZiUyQnE3U2kzelpHWnBsa241alpocG5RNzFuJTJCb1N1bUc1dFlqRlBJVEtBS1JWQW5KOFhFZEhydzdJYkZTekdpcVdMVlB0MUhha2RVa1hPODE4cSUyRjZQbCUyQk96JTJGcUFxZ09ZaFlRWiUyQkVYczR4bUk2bWFCZWxuYmhFSjdCcEo0N0ZEU0VmblpXRWx3V2VqajZjQlBTQlA2NTgxc3pLMWg2b05qNlBSR1N1STY2ciUyQkNlcjNFME04aHlnVk5nbG9hSnBWV0ZQQ1RkVG5DbnhhV0Z6ZFY3MSUyQk0xaU9lMFlBZWpzb05Lb0puZzhBJTNEJTNE","canary":"d2oBBSpXD0GKrGiPnd5SGb/L/vf7n/AYmjJj4jujCEE=0:1:CANARY:+6Q2JjK8NRQlc4uskJSCNCGws+N5vpkG/bYtUneiaF4="},"iRemoteNgcPollingType":2,"fUseNewNoPasswordTypes":true,"urlAadSignup":"https://signup.microsoft.com/signup?sku=teams_commercial_trial\u0026origin=ests\u0026culture=de","urlTenantedEndpointFormat":"https://login.microsoftonline.com/{0}/oauth2/authorize?client_id=00000003-0000-0ff1-ce00-000000000000\u0026response_mode=form_post\u0026ear_jwe_crypto=eyJhbGciOiJFQ0RILUVTIiwiZW5jIjoiQTI1NkdDTSIsImFwdiI6IkFBQUFDVVZoY2tOc2FXVnVkR2dBQUFCRlEwc3pNQUFBQUxpUVUvUHo2RzdqQnpJV1VDdjNxZlhKemhJWm1qNVJkQ0hMRzNTU3FxY3Y2UlgzTTRqcDZUMHZtcDhMMC90V0w5bXBOd2xoaUY5N2NQMGlONEkrVVZQWUF1OEltNFdwUzNxL3JOa3hSbCtNUTllUlZ1eDVFa2diRXZSYVNoRVZjZ0FBQUJqUHlaRlBqNXNQdEJHMk5zQThWVmNtclJuVlN2ZWZTSXM9In0%3d\u0026ear_jwk=eyJhbGciOiJFQ0RILUVTIiwiY3J2IjoiUC0zODQiLCJ4IjoiQUFBQU1MaVFVL1B6Nkc3akJ6SVdVQ3YzcWZYSnpoSVptajVSZENITEczU1NxcWN2NlJYM000anA2VDB2bXA4TDAvdFdMdz09IiwieSI6IkFBQUFNTm1wTndsaGlGOTdjUDBpTjRJK1VWUFlBdThJbTRXcFMzcS9yTmt4UmwrTVE5ZVJWdXg1RWtnYkV2UmFTaEVWY2c9PSIsImt0eSI6IkVDIn0%3d\u0026spa_client_id=08e18876-6177-487e-b8b5-cf950c1e598c\u0026client_info=1\u0026response_type=code+id_token+spa_rt\u0026resource=00000003-0000-0ff1-ce00-000000000000\u0026scope=openid\u0026nonce=8BA565B0DA0A7C6726D6D56FC1E354C1E76AA30F5D7F4AB4-E1081C800EA7DFBCE42D4A77BAF7BFCECC0260D8D5C24BEE1795A3F5E514B33F\u0026redirect_uri=https%3a%2f%2fpharmaciesbenu-my.sharepoint.com%2f_forms%2fdefault.aspx\u0026state=OD0wJjMyPUFBTGhiZ0FBQUJRNzI4MlFkU1lLamZBU0pYSiUyRmI4aVo4VzV2aGxYWTdmelc3NWhLb0tvdVlGWkIwUXVqM1pwdTclMkZzY3BYbUFNa0p0dUpNZzhhMHlLVmVkUUVEJTJGdWFmbTJJQ3d2WWtCd1JIa09XdiUyQk5LOGNId3RoNTIxaHVwVTltWHZTOXdlemkzWDVlNVNsTHV2UEI0VXN5Zml4ZiUyQnE3U2kzelpHWnBsa241alpocG5RNzFuJTJCb1N1bUc1dFlqRlBJVEtBS1JWQW5KOFhFZEhydzdJYkZTekdpcVdMVlB0MUhha2RVa1hPODE4cSUyRjZQbCUyQk96JTJGcUFxZ09ZaFlRWiUyQkVYczR4bUk2bWFCZWxuYmhFSjdCcEo0N0ZEU0VmblpXRWx3V2VqajZjQlBTQlA2NTgxc3pLMWg2b05qNlBSR1N1STY2ciUyQkNlcjNFME04aHlnVk5nbG9hSnBWV0ZQQ1RkVG5DbnhhV0Z6ZFY3MSUyQk0xaU9lMFlBZWpzb05Lb0puZzhBJTNEJTNE\u0026claims=%7b%22id_token%22%3a%7b%22xms_cc%22%3a%7b%22values%22%3a%5b%22CP1%22%5d%7d%7d%7d\u0026wsucxt=1\u0026cobrandid=11bd8083-87e0-41b5-bb78-0bc43c8a8e8a\u0026client-request-id=c3bb3da2-f00c-3001-67b0-b2de82488dec\u0026allowbacktocommon=True","sCloudInstanceName":"microsoftonline.com","fShowSignInOptionsAsButton":true,"fUseNewPhoneSignInError":true,"fIsUpdatedAutocompleteEnabled":true,"fActivateFocusOnApprovalNumberRemoteNGC":true,"fIsPasskey":true,"fEnableDFPIntegration":true,"fEnableCenterFocusedApprovalNumber":true,"fShowPassKeyErrorUCP":true,"fFixPhoneDisambigSignupRedirect":true,"fEnableQrCodeA11YFixes":true,"fEnablePasskeyAwpError":true,"fEnableAuthenticatorTimeoutFix":true,"fEnablePasskeyAutofillUI":true,"fIsAuthAppRestoreTextEnabled":true,"sCrossDomainCanary":"PBgABDgEAAAA9VeaV3ywaSLp1O3c4_Et5RXZvU3RzQXJ0aWZhY3RzCAAAAAAAgdWMH_F6a091Nwy70Un-89_K92qnWP1XjDBcYfcv-F7p4ty3As3lF7KmpbCltow2BtwT7Q9ELYUqXenrKcTcuYTZ3sMUVks7EXnNPDcc7238lt6EU_vusjgUA9vzzIzvoqy-GmEkaF2UbZFwY3kn71t2-dCa4Vbdk7OvfRG4DKek7hnXtJXuJ32ml-RR9V65aGXfQdnkINDUNwUD9clgJs6dJaOB94wdMeYMHqcTvA6SUDNucFnnQMCZr2yJ36uKJYeys6pV6zkvWr8tf1k8hRxrk4mjaCGn7xGbLC7_wglFHav-TOk3rfMFa64qhYH36VKdDx3XbSu_oWHYmn4C3XyuoqlP5WDLRZiiu254M7v3edusWsb6i1Vqf-PJGJjuX6BGvnzCRxLHdzet4OufldhVjjUgCeVTgQPJjaOYuIw5VfGTVYMKdOA2yRLzrPB6SPrI8eo53JnE7dg8v3w87w-hb2_Ufg7qMwzQeA_qHDIqrk16Rpb37iUkMVTcmrB_MpjyTpYzkqu8oRkWVta32ejDrmKh6Yk-0jk3S0zOUwcTN2KBIM2YXGcfcdkpcTTgn9I0A379D9agLa-Jf5oBoV4OI0YpiwyNIjnMW9jcZr_xyJJ3Y5grpUYDUTAd8kecqY4v0lwIzwz5MofRn_--0pn8KdWKeB8DHVtCpSpokvZlV6vaQZ5ML86Mip4RUs-hqcleKuNeY-I_RoyCL1kcXB0C-fn4CZ520yo0U2_xP5D2VT0cT3GpS4BLIWhX4VbpIAA","arrExcludedDisplayNames":["unknown"],"fFixShowRevealPassword":true,"fRemoveTLRFragment":true,"fEnableCredentialPickerBranding":true,"fWaitForCustomStringsBeforeRender":true,"iMaxStackForKnockoutAsyncComponents":10000,"fShowButtons":true,"urlCdn":"https://aadcdn.msftauth.net/shared/1.0/","urlDefaultFavicon":"https://aadcdn.msftauth.net/shared/1.0/content/images/favicon_a_eupayfgghqiai7k9sol6lg2.ico","urlFooterTOU":"https://www.microsoft.com/de/servicesagreement/","urlFooterPrivacy":"https://privacy.microsoft.com/de/privacystatement","urlPost":"https://login.microsoftonline.com/8e5176a9-0883-479b-8264-2e66dce2c042/login","urlPostAad":"https://login.microsoftonline.com/8e5176a9-0883-479b-8264-2e66dce2c042/login","urlPostMsa":"https://login.live.com/ppsecure/partnerpost.srf?scope=openid+profile+email+offline_access\u0026response_type=code\u0026client_id=51483342-085c-4d86-bf88-cf50c7252078\u0026response_mode=form_post\u0026redirect_uri=https%3a%2f%2flogin.microsoftonline.com%2fcommon%2ffederation%2foauth2msa\u0026state=rQQIARAApVNPiOP2FbbGG8-MM9nMuKQ0hJZk2EPI1Ouf_stDJyDJkmytrbEl66exShn0b0a2_li2bI9Hy_awUJhDCpNAStkcAjm07BDIsrRl2VDaUlqaBNKFHpLsoSSUQjYsJCRps1AKxdtLj4E-eB_v8d73-N7hey6PXkS3L4D_Bl5eYBkcHKBlx1tU_xPjUnH9tZ03f7_2GQIOb9z869X6j-9fQ1b3w_7Mu-gMozPke_5kkqTblUriW-PIcvpeanvxtBwdX0x9a-wlw348WaxW9g-G4yituN6BNQ0nF600md9CkDsI8jGCnC2NGI4lKZIDNRawNE_RGFWjaiQl8qiAkwSPCjTFsjgQyRotEixHlAUUMCjPACCwdE3keIHAagRL0xwr0pzICzwPMArUmBrJYwQnCChdJVlcJAUSJTgcF-8uPb7LTic-toDhuJ95ny-tLjTuJ8N0ci3_i3O7NXAkD1rHbV3kupLfN4HIdXRZVbIG0QrFQEfDphWZnA6SntbXj9WoQVhwSMAMYpY07xldN_JCB1cMv2mDycyFoWQEjSN9D45aaHLkdp2wFZhZD-d6ti4qFkiAqyeKmfl-qx42YQQDXYeC3JUl1xAjuyvLHdzFDGPCu6jcsEB1z-3rx52AbO5KSsPF1aHSbcytOjyC3XBi1M3u7p4belGQGTUYKlBJu3WI6UIDwD2FNKOQMBf8WMB1LMi8MKkbMZdaGIFaYTJ0JFJVMnEqd2XeRhXU1h3UFcORGnIyFCachspGxyAv7Yq-aAr-sZu5ci8wu17gJg50WzDkQEv3fQtToYX67d2aQDiafqwOzI7NL3RXqcVvji7OTVA1LTFUjYf_wJ6TqYStB5htiLxpzKe9yBe1gcs7whAowBR0ACM7TPZUY45DDI6sgTnohFy3E7KY0j2cO3jSbBmHmA3IkRJymooqqNbtYc7D-0roDBSxJQDCqocxDMjYlqq-FnMGBGang6oBlMiaHfs-BCZlij28pS14YG7p1bAlhpxpJJkNyKYNkqmZ-ZzcVYRFnuW_lrFu5i8wHonSlFUtA4bBywRdtcsMRhFlzKMo1_EwBxDY2_nCMPHivnvnHPLJuTWQ315ZKa7nvpV7OvfgHPLaI6Xi-q--_Za6_NHG7o2fvfGHlSfP595-pOJiQ47Tkr0akC6NpX47dklNsivNyuyAjitsLxrIA2IwHfCCsAO20dMCcloonBbk08I3bhdWV_Lruc0830Y_KyAny7nbq_-XxX9aRO48itxYQ-6uocVVZ2iPrdjtu6ULKGq7DGDwMkN7oEygNlm2bZopA9shcIexGI-x7q4RxYITWv0oLT13ebPv7k-GgRdvbl_enEfpvuMsqpkVTr10c_v7m3wb3fzBlStXrj72ta7_9rHcg_O_-_X9N__5kz9-Wv_k8e9uUR1MHlxiFLUTOsQ0DWSNV3jpKN1SyFkSSBW7N9Fjr2-JxM6N9dyH67mzjb8vFZMikcvlwK1T7YsvPo7_tox9s7311fV_vPVu6clrz3cmz7zz1OSls59X7j3xFX5y795O5dqrj_7lX7BSesj64Dq9ap3sX07-vUlffb6jvb_06corP7p-KfvN6x-g4v4L_HsvwvvHpfpTpS9NeeOJ8dPIs0jpfDFvhYelZYGv1cuCtui92CktsxhJSXyrdAcp5q1kVvoTwrIsy-vQdwIltQw4daVDlmU5sQPSrLUYNvsdvdLOKIkecFnD0PkZPjrYkzO_YUYDUnX5elPCNW00cmaUuoe3iEFCdcEsSpgmqEyMZjVKlKPQ74tV2mmDvkI0tnTY7rFTphERRqLho8pYCeZquNXqVD0VTuekEBzawky1NF-AzkM5g_axKbYHZNqecBKmpCwDoRON1RhqM-9Aa6Q7tzdKxfXZyUcrR9YP67d--eeX177Te-HDjdyDjdP8SSn3Hw2\u0026flow=fido\u0026estsfed=1\u0026uaid=c3bb3da2f00c300167b0b2de82488dec\u0026cobrandid=11bd8083-87e0-41b5-bb78-0bc43c8a8e8a\u0026fci=00000003-0000-0ff1-ce00-000000000000\u0026wsucxt=1","urlRefresh":"https://login.microsoftonline.com/8e5176a9-0883-479b-8264-2e66dce2c042/reprocess?ctx=rQQIARAApVNdiOPmFbXGG8-MM9nMuKQ0hIZ02IeSqdef_uWhE5BkSbbW1tiS9WmsUgb9zcjWj2XL9ni0bB4WAvOQwLTQELYPhTwk7BDoEtqybChJKS1NCu1CH9rsQ0kohWxYSGiaZCEEgjcvfQz0wj3cy-Uczn04T-fRi-j2BfB14eUFlsHBAVp2vMX0PzUuFddf3nnj92sfI-Dwxuv_vFp_4d4Z8kN_MknS7Uol8a1xZDl9L7W9eFqOji-mvjX2kmE_nlx0hlFl_2A4jtKK6x1Y03By0UqT-U0EuY0gHyDI2dKI4ViSIjlQYwFL8xSNUTWqRlIijwo4SfCoQFMsiwORrNEiwXJEWUABg_IMAAJL10SOFwisRrA0zbEizYm8wPMAo0CNqZE8RnCCgNJVksVFUiBRgsNx8c7So7vsdOJjCxiO-5n3n6XVhcf9ZJhOruV_dW63Bo7kQeu4rYtcV_L7JhC5ji6rStYgWqEY6GjYtCKT00HS0_r6sRo1CAsOCZhBzJLmPaPrRl7o4IrhN20wmbkwlIygcaTvwVELTY7crhO2AjPr4VzP1kXFAglw9UQxM99v1cMmjGCg61CQu7LkGmJkd2W5g7uYYUx4F5UbFqjuuX39uBOQzV1Jabi4OlS6jblVh0ewG06Mutnd3XNDLwoyowZDBSpptw4xXWgAuKeQZhQS5oIfC7iOBZkXJnUj5lILI1ArTIaORKpKJk7lrszbqILauoO6YjhSQ06GwoTTUNnoGOSlXdEXTcE_djNX7gVm1wvcxIFuC4YcaOm-b2EqtFC_vVsTCEfTj9WB2bH5he8qtfjN0cW5CaqmJYaq8eAf2HMylbD1ALMNkTeN-bQX-aI2cHlHGAIFmIIOYGSHyZ5qzHGIwZE1MAedkOt2QhZTuodzB0-aLeMQswE5UkJOU1EF1bo9zHmgr4TOQBFbAiCsehjDgIxtqeprMWdAYHY6qBpAiazZse9DYFKm2MNb2oIH5pZeDVtiyJlGktmAbNogmZqZz8ldRVj0Wf4bhen1_AXGI1GasqplwDB4maCrdpnBKKKMeRTlOh7mAAJ7J18YJl7cd2-fQz48twby2ysrxfXcd3JP5e6fQ15-qFRc_81331aX39_YvfHKL_-w8vj53DsPVVxsyHFaslcD0qWx1G_HLqlJdqVZmR3QcYXtRQN5QAymA14QdsA2elpATguF04J8WvjWrcLqSn49t5nn2-jHBeRkOXdr9f-K-EtF5PbDyJ01tLjqDO2xFbt9t3QBRW2XAQxeZmgPlAnUJsu2TTNlYDsE7jAW4zHWnTWiWHBCqx-lpacvb_bd_ckw8OLN7cub8yjdd5zFNLPCqZdubv9ok2-jmz--cuXK1Ue-kfpbj-Tun__db--98dmLf_yo_uGjP9iiOpg8uMQoaid0iGkayBqv8NJRuqWQsySQKnZvosde3xKJnRvruffWc2cb_14qJkUil8uBm6faJ598EP9rGft2e-vz65--_ZfS49ee6Uy-9-cnJj89e7Vy97HP8ZO7d3cq137x8N--gJXSA9a71-lV62T_cvLlJn31mY72j6WPVn7-3PVL2ZuvvYuK-8_zf_8JvHdcqj9R-q8pbzw2fgr5PlI6X8xb4WFpWeBr9bKgLXYvdkrLLEZSEt8q3UaKeSuZlf6EsCzL8jr0nUBJLQNOXemQZVlO7IA0ay2OzX5Hr7QzSqIHXNYwdH6Gjw725MxvmNGAVF2-3pRwTRuNnBml7uEtYpBQXTCLEqYJKhOjWY0S5Sj0-2KVdtqgrxCNLR22e-yUaUSEkWj4qDJWgrkabrU6VU-F0zkpBIe2MFMtzReg88DOoH1siu0BmbYnnIQpKctA6ERjNYbazDvQGunOrY1ScX128v7KkfVs_eav__qztSd7z7-3kbu_cZo_KeW-Ag2","urlCancel":"https://pharmaciesbenu-my.sharepoint.com/_forms/default.aspx","urlResume":"https://login.microsoftonline.com/8e5176a9-0883-479b-8264-2e66dce2c042/resume?ctx=rQQIARAApVNdiOPmFbXGG8-MM9nMuKQ0hIZ02IeSqdef_uWhE5BkSbbW1tiS9WmsUgb9zcjWj2XL9ni0bB4WAvOQwLTQELYPhTwk7BDoEtqybChJKS1NCu1CH9rsQ0kohWxYSGiaZCEEgjcvfQz0wj3cy-Uczn04T-fRi-j2BfB14eUFlsHBAVp2vMX0PzUuFddf3nnj92sfI-Dwxuv_vFp_4d4Z8kN_MknS7Uol8a1xZDl9L7W9eFqOji-mvjX2kmE_nlx0hlFl_2A4jtKK6x1Y03By0UqT-U0EuY0gHyDI2dKI4ViSIjlQYwFL8xSNUTWqRlIijwo4SfCoQFMsiwORrNEiwXJEWUABg_IMAAJL10SOFwisRrA0zbEizYm8wPMAo0CNqZE8RnCCgNJVksVFUiBRgsNx8c7So7vsdOJjCxiO-5n3n6XVhcf9ZJhOruV_dW63Bo7kQeu4rYtcV_L7JhC5ji6rStYgWqEY6GjYtCKT00HS0_r6sRo1CAsOCZhBzJLmPaPrRl7o4IrhN20wmbkwlIygcaTvwVELTY7crhO2AjPr4VzP1kXFAglw9UQxM99v1cMmjGCg61CQu7LkGmJkd2W5g7uYYUx4F5UbFqjuuX39uBOQzV1Jabi4OlS6jblVh0ewG06Mutnd3XNDLwoyowZDBSpptw4xXWgAuKeQZhQS5oIfC7iOBZkXJnUj5lILI1ArTIaORKpKJk7lrszbqILauoO6YjhSQ06GwoTTUNnoGOSlXdEXTcE_djNX7gVm1wvcxIFuC4YcaOm-b2EqtFC_vVsTCEfTj9WB2bH5he8qtfjN0cW5CaqmJYaq8eAf2HMylbD1ALMNkTeN-bQX-aI2cHlHGAIFmIIOYGSHyZ5qzHGIwZE1MAedkOt2QhZTuodzB0-aLeMQswE5UkJOU1EF1bo9zHmgr4TOQBFbAiCsehjDgIxtqeprMWdAYHY6qBpAiazZse9DYFKm2MNb2oIH5pZeDVtiyJlGktmAbNogmZqZz8ldRVj0Wf4bhen1_AXGI1GasqplwDB4maCrdpnBKKKMeRTlOh7mAAJ7J18YJl7cd2-fQz48twby2ysrxfXcd3JP5e6fQ15-qFRc_81331aX39_YvfHKL_-w8vj53DsPVVxsyHFaslcD0qWx1G_HLqlJdqVZmR3QcYXtRQN5QAymA14QdsA2elpATguF04J8WvjWrcLqSn49t5nn2-jHBeRkOXdr9f-K-EtF5PbDyJ01tLjqDO2xFbt9t3QBRW2XAQxeZmgPlAnUJsu2TTNlYDsE7jAW4zHWnTWiWHBCqx-lpacvb_bd_ckw8OLN7cub8yjdd5zFNLPCqZdubv9ok2-jmz--cuXK1Ue-kfpbj-Tun__db--98dmLf_yo_uGjP9iiOpg8uMQoaid0iGkayBqv8NJRuqWQsySQKnZvosde3xKJnRvruffWc2cb_14qJkUil8uBm6faJ598EP9rGft2e-vz65--_ZfS49ee6Uy-9-cnJj89e7Vy97HP8ZO7d3cq137x8N--gJXSA9a71-lV62T_cvLlJn31mY72j6WPVn7-3PVL2ZuvvYuK-8_zf_8JvHdcqj9R-q8pbzw2fgr5PlI6X8xb4WFpWeBr9bKgLXYvdkrLLEZSEt8q3UaKeSuZlf6EsCzL8jr0nUBJLQNOXemQZVlO7IA0ay2OzX5Hr7QzSqIHXNYwdH6Gjw725MxvmNGAVF2-3pRwTRuNnBml7uEtYpBQXTCLEqYJKhOjWY0S5Sj0-2KVdtqgrxCNLR22e-yUaUSEkWj4qDJWgrkabrU6VU-F0zkpBIe2MFMtzReg88DOoH1siu0BmbYnnIQpKctA6ERjNYbazDvQGunOrY1ScX128v7KkfVs_eav__qztSd7z7-3kbu_cZo_KeW-Ag2","iPawnIcon":0,"iPollingInterval":1,"sPOST_Username":"","fEnableNumberMatching":true,"stsErrorCode":"50058","sFT":"BgABIQEAAAA9VeaV3ywaSLp1O3c4_Et5RXZvU3RzQXJ0aWZhY3RzAQAAAAAA-i3Q-X4ueEgq8XdzpJyZ0j9fOiR7lDft6z33OH2WWWg4OLfCn6dBX03mvbnnNycLzZE7-tJ_kmB5RBaO3hzhOq_NY_NuEz8POE3mpQAL8Z7ftXpyHnUTRBSUvq7HTWUHEwjXg0_QFp1737QmrhkjPXdK1eCy29I5484wU68ddp469Btmlq9kVwiTbOPu1xsnacdPFjGatWIRDVwXqMbsqxyw_r-Fbjf_zOxG0iQ7Fi2wuug8mC6T8FG5Xr-C4AGoWzYCZ_N8tYpdl91XN1hkFbBeCWyIO_By41L4VVqXTpQ18dOQK2lg0TOCrfUS7rt_5IYIaU0tssXzuTb97tISElPRRsbYzjWJQln5sbWj_M7gg7rGDySBLMgiTvUKZA_qLX7FzmHGctwi_rsIXHW2qbMTouF8MCnrv1scfFmay-mO40kMZzgII2vgTmacBhQTWJaxop5wM4J_VfDwJbsMmZ0Pa94icSEcDPkgiKuuV-CWftKxRo4fMFVIOkAfUTO_EhHV4UqtpfMLFx5R63k6PlISwbQqdP75kVghyIwupoKZuNBsEkavD6ieecQ2ZNpCJiRtpxKYZDLj1BiujnZzf-jjL116As_nIEvLkkGpjKxMyYpA7sxSgZV_kykisJl_dBIygJUWQzlscik2qxvDdUO6pNYTzC_1629C-a7Ff4XaqVBrPM6FEakGXEyQ96FJUs8H0B4iPo1khIBkMplafOK_nLlOLXaCKy-gqk3Uh6UW_MNBb2XpLg-NBKB2x7_Bo1Eb2SYotHBCzQb1qCBpXA6RjpvHjZgxFZKgZ9qvTr6CwcBlHHqt8otGGiwJQlfGkJl4KbPGhxVl7butQLmse9fAFcF4aMxcECZHlI8BFf14NL65ne2N2vQAl3vCijFQqbyHn6cb_5ITw744OY2A_G1urmXdRAqFRqDJI0sbYyWowxsNyGouwmn2JgigP8dBuLd8MokPlbSavswTyQIACctxQntor3QWqW-kn_zRjIFfIxrThYw6QxejebRuzdKtdRpdajysecAKZgr25BEW7_Cz6Rd4W3uYaSx0aXf51QFn__Q6cerkl0Off0DGwMmjjSqNbVxZEYPZc-PoKf85CiAA","sFTName":"flowToken","sFTCookieName":"ESTSWCTXFLOWTOKEN","sSessionIdentifierName":"code","sCtx":"rQQIARAApVNdiOPmFbXGG8-MM9nMuKQ0hIZ02IeSqdef_uWhE5BkSbbW1tiS9WmsUgb9zcjWj2XL9ni0bB4WAvOQwLTQELYPhTwk7BDoEtqybChJKS1NCu1CH9rsQ0kohWxYSGiaZCEEgjcvfQz0wj3cy-Uczn04T-fRi-j2BfB14eUFlsHBAVp2vMX0PzUuFddf3nnj92sfI-Dwxuv_vFp_4d4Z8kN_MknS7Uol8a1xZDl9L7W9eFqOji-mvjX2kmE_nlx0hlFl_2A4jtKK6x1Y03By0UqT-U0EuY0gHyDI2dKI4ViSIjlQYwFL8xSNUTWqRlIijwo4SfCoQFMsiwORrNEiwXJEWUABg_IMAAJL10SOFwisRrA0zbEizYm8wPMAo0CNqZE8RnCCgNJVksVFUiBRgsNx8c7So7vsdOJjCxiO-5n3n6XVhcf9ZJhOruV_dW63Bo7kQeu4rYtcV_L7JhC5ji6rStYgWqEY6GjYtCKT00HS0_r6sRo1CAsOCZhBzJLmPaPrRl7o4IrhN20wmbkwlIygcaTvwVELTY7crhO2AjPr4VzP1kXFAglw9UQxM99v1cMmjGCg61CQu7LkGmJkd2W5g7uYYUx4F5UbFqjuuX39uBOQzV1Jabi4OlS6jblVh0ewG06Mutnd3XNDLwoyowZDBSpptw4xXWgAuKeQZhQS5oIfC7iOBZkXJnUj5lILI1ArTIaORKpKJk7lrszbqILauoO6YjhSQ06GwoTTUNnoGOSlXdEXTcE_djNX7gVm1wvcxIFuC4YcaOm-b2EqtFC_vVsTCEfTj9WB2bH5he8qtfjN0cW5CaqmJYaq8eAf2HMylbD1ALMNkTeN-bQX-aI2cHlHGAIFmIIOYGSHyZ5qzHGIwZE1MAedkOt2QhZTuodzB0-aLeMQswE5UkJOU1EF1bo9zHmgr4TOQBFbAiCsehjDgIxtqeprMWdAYHY6qBpAiazZse9DYFKm2MNb2oIH5pZeDVtiyJlGktmAbNogmZqZz8ldRVj0Wf4bhen1_AXGI1GasqplwDB4maCrdpnBKKKMeRTlOh7mAAJ7J18YJl7cd2-fQz48twby2ysrxfXcd3JP5e6fQ15-qFRc_81331aX39_YvfHKL_-w8vj53DsPVVxsyHFaslcD0qWx1G_HLqlJdqVZmR3QcYXtRQN5QAymA14QdsA2elpATguF04J8WvjWrcLqSn49t5nn2-jHBeRkOXdr9f-K-EtF5PbDyJ01tLjqDO2xFbt9t3QBRW2XAQxeZmgPlAnUJsu2TTNlYDsE7jAW4zHWnTWiWHBCqx-lpacvb_bd_ckw8OLN7cub8yjdd5zFNLPCqZdubv9ok2-jmz--cuXK1Ue-kfpbj-Tun__db--98dmLf_yo_uGjP9iiOpg8uMQoaid0iGkayBqv8NJRuqWQsySQKnZvosde3xKJnRvruffWc2cb_14qJkUil8uBm6faJ598EP9rGft2e-vz65--_ZfS49ee6Uy-9-cnJj89e7Vy97HP8ZO7d3cq137x8N--gJXSA9a71-lV62T_cvLlJn31mY72j6WPVn7-3PVL2ZuvvYuK-8_zf_8JvHdcqj9R-q8pbzw2fgr5PlI6X8xb4WFpWeBr9bKgLXYvdkrLLEZSEt8q3UaKeSuZlf6EsCzL8jr0nUBJLQNOXemQZVlO7IA0ay2OzX5Hr7QzSqIHXNYwdH6Gjw725MxvmNGAVF2-3pRwTRuNnBml7uEtYpBQXTCLEqYJKhOjWY0S5Sj0-2KVdtqgrxCNLR22e-yUaUSEkWj4qDJWgrkabrU6VU-F0zkpBIe2MFMtzReg88DOoH1siu0BmbYnnIQpKctA6ERjNYbazDvQGunOrY1ScX128v7KkfVs_eav__qztSd7z7-3kbu_cZo_KeW-Ag2","iProductIcon":-1,"fEnableOneDSClientTelemetry":true,"fEnableWebVitalsV2":true,"staticTenantBranding":[{"Locale":0,"BannerLogo":"https://aadcdn.msftauthimages.net/c1c6b6c8-oletmuugf-ukhub-u-ofxv2kefluhmj-w4eydvjrzac/logintenantbranding/0/bannerlogo?ts=637636943610039730","TileLogo":"https://aadcdn.msftauthimages.net/c1c6b6c8-oletmuugf-ukhub-u-ofxv2kefluhmj-w4eydvjrzac/logintenantbranding/0/tilelogo?ts=637636943616670579","TileDarkLogo":"https://aadcdn.msftauthimages.net/c1c6b6c8-oletmuugf-ukhub-u-ofxv2kefluhmj-w4eydvjrzac/logintenantbranding/0/squarelogodark?ts=637636943622874662","Illustration":"https://aadcdn.msftauthimages.net/c1c6b6c8-oletmuugf-ukhub-u-ofxv2kefluhmj-w4eydvjrzac/logintenantbranding/0/illustration?ts=637636943603337802","BackgroundColor":"#FFFFFF","BoilerPlateText":"<p>You are about to access a private organization. Your logon attempt will be logged. Ensure you are authorised to connect before continuing.</p>\n","KeepMeSignedInDisabled":true,"UseTransparentLightBox":false},{"Locale":1031,"BannerLogo":"https://aadcdn.msftauthimages.net/c1c6b6c8-oletmuugf-ukhub-u-ofxv2kefluhmj-w4eydvjrzac/logintenantbranding/1031/bannerlogo?ts=637636945464403580","TileLogo":"https://aadcdn.msftauthimages.net/c1c6b6c8-oletmuugf-ukhub-u-ofxv2kefluhmj-w4eydvjrzac/logintenantbranding/1031/tilelogo?ts=637636945475124084","TileDarkLogo":"https://aadcdn.msftauthimages.net/c1c6b6c8-oletmuugf-ukhub-u-ofxv2kefluhmj-w4eydvjrzac/logintenantbranding/1031/squarelogodark?ts=637636945481005918","Illustration":"https://aadcdn.msftauthimages.net/c1c6b6c8-oletmuugf-ukhub-u-ofxv2kefluhmj-w4eydvjrzac/logintenantbranding/1031/illustration?ts=637636945459039476","BackgroundColor":"#FFFFFF","BoilerPlateText":"<p>Sie sind im Begriff, auf eine private Organisation zuzugreifen. Ihr Anmeldeversuch wird protokolliert. Stellen Sie sicher, dass Sie berechtigt sind, eine Verbindung herzustellen, bevor Sie fortfahren.</p>\n","KeepMeSignedInDisabled":true,"UseTransparentLightBox":false}],"oAppCobranding":{},"iBackgroundImage":4,"arrSessions":[],"fApplicationInsightsEnabled":false,"iApplicationInsightsEnabledPercentage":0,"urlSetDebugMode":"https://login.microsoftonline.com/common/debugmode","fEnableCssAnimation":true,"fAllowGrayOutLightBox":true,"fUseMsaSessionState":true,"fIsRemoteNGCSupported":true,"desktopSsoConfig":{"isEdgeAnaheimAllowed":true,"iwaEndpointUrlFormat":"https://autologon.microsoftazuread-sso.com/{0}/winauth/sso?client-request-id=c3bb3da2-f00c-3001-67b0-b2de82488dec","iwaSsoProbeUrlFormat":"https://autologon.microsoftazuread-sso.com/{0}/winauth/ssoprobe?client-request-id=c3bb3da2-f00c-3001-67b0-b2de82488dec","iwaIFrameUrlFormat":"https://autologon.microsoftazuread-sso.com/{0}/winauth/iframe?client-request-id=c3bb3da2-f00c-3001-67b0-b2de82488dec\u0026isAdalRequest=False","iwaRequestTimeoutInMs":10000,"hintedDomainName":"8e5176a9-0883-479b-8264-2e66dce2c042","startDesktopSsoOnPageLoad":true,"progressAnimationTimeout":10000,"isEdgeAllowed":false,"minDssoEdgeVersion":"17","isSafariAllowed":true,"redirectUri":"https://pharmaciesbenu-my.sharepoint.com/_forms/default.aspx","redirectDssoErrorPostParams":{"error":"interaction_required","error_description":"Seamless single sign on failed for the user. This can happen if the user is unable to access on premises AD or intranet zone is not configured correctly Trace ID: 52c91db6-e107-4f11-b0a6-afc508190e00 Correlation ID: c3bb3da2-f00c-3001-67b0-b2de82488dec Timestamp: 2026-09-22 14:40:10Z","state":"OD0wJjMyPUFBTGhiZ0FBQUJRNzI4MlFkU1lLamZBU0pYSiUyRmI4aVo4VzV2aGxYWTdmelc3NWhLb0tvdVlGWkIwUXVqM1pwdTclMkZzY3BYbUFNa0p0dUpNZzhhMHlLVmVkUUVEJTJGdWFmbTJJQ3d2WWtCd1JIa09XdiUyQk5LOGNId3RoNTIxaHVwVTltWHZTOXdlemkzWDVlNVNsTHV2UEI0VXN5Zml4ZiUyQnE3U2kzelpHWnBsa241alpocG5RNzFuJTJCb1N1bUc1dFlqRlBJVEtBS1JWQW5KOFhFZEhydzdJYkZTekdpcVdMVlB0MUhha2RVa1hPODE4cSUyRjZQbCUyQk96JTJGcUFxZ09ZaFlRWiUyQkVYczR4bUk2bWFCZWxuYmhFSjdCcEo0N0ZEU0VmblpXRWx3V2VqajZjQlBTQlA2NTgxc3pLMWg2b05qNlBSR1N1STY2ciUyQkNlcjNFME04aHlnVk5nbG9hSnBWV0ZQQ1RkVG5DbnhhV0Z6ZFY3MSUyQk0xaU9lMFlBZWpzb05Lb0puZzhBJTNEJTNE","canary":"d2oBBSpXD0GKrGiPnd5SGb/L/vf7n/AYmjJj4jujCEE=0:1:CANARY:+6Q2JjK8NRQlc4uskJSCNCGws+N5vpkG/bYtUneiaF4="},"isIEAllowedForSsoProbe":true,"edgeRedirectUri":"https://autologon.microsoftazuread-sso.com/8e5176a9-0883-479b-8264-2e66dce2c042/winauth/sso/edgeredirect?client-request-id=c3bb3da2-f00c-3001-67b0-b2de82488dec\u0026origin=login.microsoftonline.com\u0026is_redirected=1","isFlowTokenPassedInEdge":true},"urlLogin":"https://login.microsoftonline.com/8e5176a9-0883-479b-8264-2e66dce2c042/reprocess?ctx=rQQIARAApVNdiOPmFbXGG8-MM9nMuKQ0hIZ02IeSqdef_uWhE5BkSbbW1tiS9WmsUgb9zcjWj2XL9ni0bB4WAvOQwLTQELYPhTwk7BDoEtqybChJKS1NCu1CH9rsQ0kohWxYSGiaZCEEgjcvfQz0wj3cy-Uczn04T-fRi-j2BfB14eUFlsHBAVp2vMX0PzUuFddf3nnj92sfI-Dwxuv_vFp_4d4Z8kN_MknS7Uol8a1xZDl9L7W9eFqOji-mvjX2kmE_nlx0hlFl_2A4jtKK6x1Y03By0UqT-U0EuY0gHyDI2dKI4ViSIjlQYwFL8xSNUTWqRlIijwo4SfCoQFMsiwORrNEiwXJEWUABg_IMAAJL10SOFwisRrA0zbEizYm8wPMAo0CNqZE8RnCCgNJVksVFUiBRgsNx8c7So7vsdOJjCxiO-5n3n6XVhcf9ZJhOruV_dW63Bo7kQeu4rYtcV_L7JhC5ji6rStYgWqEY6GjYtCKT00HS0_r6sRo1CAsOCZhBzJLmPaPrRl7o4IrhN20wmbkwlIygcaTvwVELTY7crhO2AjPr4VzP1kXFAglw9UQxM99v1cMmjGCg61CQu7LkGmJkd2W5g7uYYUx4F5UbFqjuuX39uBOQzV1Jabi4OlS6jblVh0ewG06Mutnd3XNDLwoyowZDBSpptw4xXWgAuKeQZhQS5oIfC7iOBZkXJnUj5lILI1ArTIaORKpKJk7lrszbqILauoO6YjhSQ06GwoTTUNnoGOSlXdEXTcE_djNX7gVm1wvcxIFuC4YcaOm-b2EqtFC_vVsTCEfTj9WB2bH5he8qtfjN0cW5CaqmJYaq8eAf2HMylbD1ALMNkTeN-bQX-aI2cHlHGAIFmIIOYGSHyZ5qzHGIwZE1MAedkOt2QhZTuodzB0-aLeMQswE5UkJOU1EF1bo9zHmgr4TOQBFbAiCsehjDgIxtqeprMWdAYHY6qBpAiazZse9DYFKm2MNb2oIH5pZeDVtiyJlGktmAbNogmZqZz8ldRVj0Wf4bhen1_AXGI1GasqplwDB4maCrdpnBKKKMeRTlOh7mAAJ7J18YJl7cd2-fQz48twby2ysrxfXcd3JP5e6fQ15-qFRc_81331aX39_YvfHKL_-w8vj53DsPVVxsyHFaslcD0qWx1G_HLqlJdqVZmR3QcYXtRQN5QAymA14QdsA2elpATguF04J8WvjWrcLqSn49t5nn2-jHBeRkOXdr9f-K-EtF5PbDyJ01tLjqDO2xFbt9t3QBRW2XAQxeZmgPlAnUJsu2TTNlYDsE7jAW4zHWnTWiWHBCqx-lpacvb_bd_ckw8OLN7cub8yjdd5zFNLPCqZdubv9ok2-jmz--cuXK1Ue-kfpbj-Tun__db--98dmLf_yo_uGjP9iiOpg8uMQoaid0iGkayBqv8NJRuqWQsySQKnZvosde3xKJnRvruffWc2cb_14qJkUil8uBm6faJ598EP9rGft2e-vz65--_ZfS49ee6Uy-9-cnJj89e7Vy97HP8ZO7d3cq137x8N--gJXSA9a71-lV62T_cvLlJn31mY72j6WPVn7-3PVL2ZuvvYuK-8_zf_8JvHdcqj9R-q8pbzw2fgr5PlI6X8xb4WFpWeBr9bKgLXYvdkrLLEZSEt8q3UaKeSuZlf6EsCzL8jr0nUBJLQNOXemQZVlO7IA0ay2OzX5Hr7QzSqIHXNYwdH6Gjw725MxvmNGAVF2-3pRwTRuNnBml7uEtYpBQXTCLEqYJKhOjWY0S5Sj0-2KVdtqgrxCNLR22e-yUaUSEkWj4qDJWgrkabrU6VU-F0zkpBIe2MFMtzReg88DOoH1siu0BmbYnnIQpKctA6ERjNYbazDvQGunOrY1ScX128v7KkfVs_eav__qztSd7z7-3kbu_cZo_KeW-Ag2","urlDssoStatus":"https://login.microsoftonline.com/common/instrumentation/dssostatus","iSessionPullType":2,"fUseSameSite":true,"iAllowedIdentities":2,"uiflavor":1001,"urlFidoHelp":"https://go.microsoft.com/fwlink/?linkid=2013738","urlFidoLogin":"https://login.microsoft.com/8e5176a9-0883-479b-8264-2e66dce2c042/fido/get?uiflavor=Web","fIsFidoSupported":true,"fHidePrivateBrowsingDisclaimer":true,"fLoadStringCustomizationPromises":true,"fUseAlternateTextForSwitchToCredPickerLink":true,"fOfflineAccountVisible":false,"fEnableUserStateFix":true,"fAccessPassSupported":true,"fShowAccessPassPeek":true,"fUpdateSessionPollingLogic":true,"fEnableShowPickerCredObservable":true,"fFetchSessionsSkipDsso":true,"fIsCiamUserFlowUxNewLogicEnabled":true,"fUseNonMicrosoftDefaultBrandingForCiam":true,"sCompanyDisplayName":"PhoenixPharmaSwitzerland AG","fRemoveCustomCss":true,"fFixUICrashForApiRequestHandler":true,"fShowUpdatedKoreanPrivacyFooter":true,"fUsePostCssHotfix":true,"fFixUserFlowBranding":true,"fIsQrCodePinSupported":true,"fEnablePasskeyNullFix":true,"fUseNativeBridgeEdgeApi":true,"fEnableWebNativeBridgeInterstitialUx":true,"fEnableThisAppOnlyUxSupport":true,"fEnableWindowParentingFix":true,"fEnableNativeBridgeErrors":true,"fEnableNativeBridgeErrorUpn":true,"fEnableDomApiSuccessUpnFix":true,"urlAcmaServerPath":"https://login.microsoftonline.com","sTenantId":"8e5176a9-0883-479b-8264-2e66dce2c042","sMkt":"de","fIsDesktop":true,"fLogDisallowedCssProperties":true,"fDisallowExternalFonts":true,"fDisallowCssPositioning":true,"sFidoChallenge":"O.eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImRndlNEdks4QTVLeUt5cHB3MWRBd1RYRDNDQSJ9.eyJhdWQiOiJ1cm46bWljcm9zb2Z0OmZpZG86Y2hhbGxlbmdlIiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5taWNyb3NvZnQuY29tIiwiaWF0IjoxNzkwMDg4MDEwLCJuYmYiOjE3OTAwODgwMTAsImV4cCI6MTc5MDA4ODMxMCwianRpIjoidGgzSlVnZmhFVS13cHFfRkNCa09BQSIsInNpZCI6ImxIQ2hHRFdvVGdGdWMwU2pLdjdsQmJyeFBTTWFGaHMyS184Q0lrMEg4ZkEifQ.eFckj4rMI6Yl6pEiKiNdxGsQ2dDGJo8ks9oWNmMKLnFjSiYXMalVSIZTetrUgYiilJpUgkwviGOx0Ma4WSZ003pLQ4Fe_Di5W4ufhjKZUUrVfY3zf7qpNy3xKhnPkWDuDj4U7B6MI3ucIh8T8DNGhhgZUgi32uwPaXj8iTA7HhpxoOsAN2RQFjXx93Dky7fX2vdVRpvK-F4UHlKTuTk2wBeBXMQG6MxhgPxvZxFq_jzVU_rRZqlBnSfAYUzsRqLaPim8w7AD5OsiZRmN1OOT_Pd_l-DVsJ9inS7VngEv1GwN9aIns2ZYK3J6Ddvh-Yy4hoauaQFYW3erhwVmCVkWyQ","fShowDebugDetailsAriaExpanded":true,"fEnableStableEffectOnce":false,"fPreventOtcFormDoubleSubmit":true,"fEnableOtcInputAutofill":true,"fEnableWebNativeBridgeLoadFix":true,"fEnableWebNativeBridgeClientTelemetry":true,"fEnableWebAuthNTelemetry":true,"scid":1013,"hpgact":1800,"hpgid":1104,"pgid":"ConvergedSignIn","apiCanary":"PBgABDgEAAAA9VeaV3ywaSLp1O3c4_Et5RXZvU3RzQXJ0aWZhY3RzCAAAAAAARmvNorj_SsUYy-iCJIyUEFGO_7TB8d0lPjtDsRDwjll4jbVaFPl4yLYnb0Fd_uHIhw66xaHQNQRtKzf4UEY-wu7rNCIReIfa-YDrLM8EI3-OfafxGLeemAsErrHipKTuBOtBbOiAmIbJ3c4KLxKm7w_WEAX-O3tEDFDdQWRPJ82dHgpBlqaq_tvnukoa09pxrpH6K6J0sGzPmqzqC38VepBprUClCrirLVDt4ANiJhK9LFEaNfF6aipQTEzyhEzPOwusU1z7shEhT6gvFSXCoLojXVG_WUDARN8gNCujizjWIiZXuFHIN9EFMdd7vZkUwPW960bzTetRlQkZKwgUnrqR2Ual5Yu59e652v_qeMo6MqAkGAfYlRIDwW33TZiONJcMFVKUz7VL7-jz1lpiQsrpOt_X5OH7THK5UPrjKPiWwNroBVSJgzZMHaJe7b7GsS-94TOZJ4-RVXISO-b36OPeDd6P8W-tfaz2QX_sjizINCP9GZH5_pVVm5f13uFW1sMexsEddO_922yye_0pR_CbO0_y2PfhIEp3SQ7GdseovnaR4mvN53a4kAAwUuVuUW_8hvPVIl4ue4c3n7V6fKW7Zwu6GMTL007hmPzNnZb4S5i-zgkunlORVwZRvmDqmqBTXBGn4h6rZVkMfABfI-xpgRXkJ5M7Pme0lz0--r7suCAIBKcqzNrvyt4gv42AWCOkXhiHAStm3B3asB1NhEmaZMAj2n-i8qMiADOswVaG39yuESYSc0bpZCbMEuKvIAA","canary":"d2oBBSpXD0GKrGiPnd5SGb/L/vf7n/AYmjJj4jujCEE=0:1:CANARY:+6Q2JjK8NRQlc4uskJSCNCGws+N5vpkG/bYtUneiaF4=","sCanaryTokenName":"canary","fSkipRenderingNewCanaryToken":false,"fEnableNewCsrfProtection":true,"correlationId":"c3bb3da2-f00c-3001-67b0-b2de82488dec","sessionId":"52c91db6-e107-4f11-b0a6-afc508190e00","sRingId":"R4","locale":{"mkt":"de","lcid":7},"slMaxRetry":2,"slReportFailure":true,"strings":{"desktopsso":{"authenticatingmessage":"Anmeldung wird versucht"}},"enums":{"ClientMetricsModes":{"None":0,"SubmitOnPost":1,"SubmitOnRedirect":2,"InstrumentPlt":4}},"urls":{"instr":{"pageload":"https://login.microsoftonline.com/common/instrumentation/reportpageload","dssostatus":"https://login.microsoftonline.com/common/instrumentation/dssostatus"}},"browser":{"ltr":1,"Edge":1,"_Win":1,"_M153":1,"_D0":1,"Full":1,"Win81":1,"RE_WebKit":1,"b":{"name":"Edge","major":153,"minor":0},"os":{"name":"Windows","version":"10.0"},"V":"153.0"},"watson":{"url":"/common/handlers/watson","bundle":"https://aadcdn.msftauth.net/ests/2.1/content/cdnbundles/watson.min_82o5oyf7tvyeotpacdeksw2.js","sbundle":"https://aadcdn.msftauth.net/ests/2.1/content/cdnbundles/watsonsupportwithjquery.3.5.min_dc940oomzau4rsu8qesnvg2.js","fbundle":"https://aadcdn.msftauth.net/ests/2.1/content/cdnbundles/frameworksupport.min_oadrnc13magb009k4d20lg2.js","resetErrorPeriod":5,"maxCorsErrors":-1,"maxInjectErrors":5,"maxErrors":10,"maxTotalErrors":3,"expSrcs":["https://login.microsoftonline.com","https://aadcdn.msauth.net/","https://aadcdn.msftauth.net/",".login.microsoftonline.com"],"envErrorRedirect":true,"envErrorUrl":"/common/handlers/enverror"},"loader":{"cdnRoots":["https://aadcdn.msauth.net/","https://aadcdn.msftauth.net/"],"logByThrowing":true,"tenantBrandingCdnRoots":["aadcdn.msauthimages.net","aadcdn.msftauthimages.net"]},"serverDetails":{"slc":"ProdSlices","dc":"SEC","ri":"GVXXXXX","ver":{"v":[2,1,25264,8]},"rt":"2026-09-22T14:40:10","et":54,"axv":"4.380.231"},"clientEvents":{"enabled":true,"telemetryEnabled":true,"useOneDSEventApi":true,"flush":60000,"autoPost":true,"autoPostDelay":1000,"minEvents":1,"maxEvents":1,"pltDelay":500,"appInsightsConfig":{"instrumentationKey":"b0c252808e614e949086e019ae1cb300-e0c02060-e3b3-4965-bd7c-415e1a7a9fde-6951","webAnalyticsConfiguration":{"autoCapture":{"jsError":true}}},"defaultEventName":"IDUX_ESTSClientTelemetryEvent_WebWatson","serviceID":3,"endpointUrl":"https://eu-mobile.events.data.microsoft.com/OneCollector/1.0/"},"fApplyAsciiRegexOnInput":true,"country":"CH","bsso":{"initiatePullTimeoutMs":100,"initiatePullTimeoutAction":"continue","rid":"52c91db6-e107-4f11-b0a6-afc508190e00","states":{"START":"start","INPROGRESS":"in-progress","END":"end","END_SSO":"end-sso","END_USERS":"end-users"},"nonce":"AwABEgEAAAADAOz_BQD0_0V2b1N0c0FydGlmYWN0cwUAAAAAAEL6amo_1ohCZwZkrpeZT8R4sjCVqIiYz9j3_iV5Y7NE8JP545fcWCJ-XAVZ1mfLNOCGCVtplmIuPRLNT19uWJcgAA","overallTimeoutMs":4000,"telemetry":{"type":"TBAuthTelemetry","nonce":"AwABDwEAAAADAOz_BQD0_0V2b1N0c0FydGlmYWN0cwUAAAAAAOVopnrUOEVFiin-CLFXPtPcuSbBmjplXAYPdkJfgoErpingydydhkw0IixoPe-gO5rXzBxHCxfyqh-CRbAfJ9_wTiU515O-shaIj9oaiX07IAA","reportStates":["end","end-sso","end-users"]},"redirectEndStates":["end","end-users"],"cookieNames":{"aadSso":"AADSSO","winSso":"ESTSSSO","ssoTiles":"ESTSSSOTILES","ssoPulled":"SSOCOOKIEPULLED","userList":"ESTSUSERLIST"},"enabled":true,"type":"windows","reason":"Pull is needed"},"urlNoCookies":"https://login.microsoftonline.com/cookiesdisabled","fTrimChromeBssoUrl":true,"inlineMode":5,"fShowCopyDebugDetailsLink":true,"fTenantBrandingCdnAddEventHandlers":true};
+//]]></script> 
+<script type="text/javascript" nonce='0f5PWxFrXJPah92t9zmfdg'>//<![CDATA[
+!function(){var e=window,r=e.$Debug=e.$Debug||{},t=e.$Config||{};if(!r.appendLog){var n=[],o=0;r.appendLog=function(e){var r=t.maxDebugLog||25,i=(new Date).toUTCString()+":"+e;n.push(o+":"+i),n.length>r&&n.shift(),o++},r.getLogs=function(){return n}}}(),function(){function e(e,r){function t(i){var a=e[i];if(i<n-1){return void(o.r[a]?t(i+1):o.when(a,function(){t(i+1)}))}r(a)}var n=e.length;t(0)}function r(e,r,i){function a(){var e=!!u.method,o=e?u.method:i[0],a=u.extraArgs||[],s=n.$WebWatson;try{
+var d=t(i,!e);if(a&&a.length>0){for(var c=a.length,l=0;l<c;l++){d.push(a[l])}}o.apply(r,d)}catch(e){return void(s&&s.submitFromException&&s.submitFromException(e))}}var u=o.r&&o.r[e];return r=r||this,u&&(u.skipTimeout?a():n.setTimeout(a,0)),u}function t(e,r){return Array.prototype.slice.call(e,r?1:0)}var n=window;n.$Do||(n.$Do={"q":[],"r":[],"removeItems":[],"lock":0,"o":[]});var o=n.$Do;o.when=function(t,n){function i(e){r(e,a,u)||o.q.push({"id":e,"c":a,"a":u})}var a=0,u=[],s=1;"function"==typeof n||(a=n,
+s=2);for(var d=s;d<arguments.length;d++){u.push(arguments[d])}t instanceof Array?e(t,i):i(t)},o.register=function(e,t,n){if(!o.r[e]){o.o.push(e);var i={};if(t&&(i.method=t),n&&(i.skipTimeout=n),arguments&&arguments.length>3){i.extraArgs=[];for(var a=3;a<arguments.length;a++){i.extraArgs.push(arguments[a])}}o.r[e]=i,o.lock++;try{for(var u=0;u<o.q.length;u++){var s=o.q[u];s.id==e&&r(e,s.c,s.a)&&o.removeItems.push(s)}}catch(e){throw e}finally{if(0===--o.lock){for(var d=0;d<o.removeItems.length;d++){
+for(var c=o.removeItems[d],l=0;l<o.q.length;l++){if(o.q[l]===c){o.q.splice(l,1);break}}}o.removeItems=[]}}}},o.unregister=function(e){o.r[e]&&delete o.r[e]}}(),function(e,r){function t(){if(!a){if(!r.body){return void setTimeout(t)}a=!0,e.$Do.register("doc.ready",0,!0)}}function n(){if(!u){if(!r.body){return void setTimeout(n)}t(),u=!0,e.$Do.register("doc.load",0,!0),i()}}function o(e){(r.addEventListener||"load"===e.type||"complete"===r.readyState)&&t()}function i(){
+r.addEventListener?(r.removeEventListener("DOMContentLoaded",o,!1),e.removeEventListener("load",n,!1)):r.attachEvent&&(r.detachEvent("onreadystatechange",o),e.detachEvent("onload",n))}var a=!1,u=!1;if("complete"===r.readyState){return void setTimeout(n)}!function(){r.addEventListener?(r.addEventListener("DOMContentLoaded",o,!1),e.addEventListener("load",n,!1)):r.attachEvent&&(r.attachEvent("onreadystatechange",o),e.attachEvent("onload",n))}()}(window,document),function(){function e(){
+return(t().loader||{}).tenantBrandingCdnRoots||[]}function r(r){var t=e();if(t&&t.length>0&&r){for(var n=0;n<t.length;n++){if(t[n]&&-1!==r.indexOf(t[n])){return!0}}}return!1}function t(){return h.$Config||h.ServerData||{}}function n(e,r,t){var n=h.$Debug;n&&n.appendLog&&(r&&(e+=" '"+(r.src||r.href||"")+"'",e+=", id:"+(r.id||""),e+=", async:"+(r.async||""),e+=", defer:"+(r.defer||"")),t&&(e+=", loadDuration:"+t+"ms"),n.appendLog(e))}function o(){var e=h.$B;if(void 0===g){if(e){g=e.IE}else{
+var r=h.navigator.userAgent;g=-1!==r.indexOf("MSIE ")||-1!==r.indexOf("Trident/")}}return g}function i(){var e=h.$B;if(void 0===v){if(e){v=e.RE_Edge}else{var r=h.navigator.userAgent;v=-1!==r.indexOf("Edge")}}return v}function a(e){var r=e.indexOf("?"),t=r>-1?r:e.length,n=e.lastIndexOf(".",t);return e.substring(n,n+m.length).toLowerCase()===m}function u(){var e=t();return(e.loader||{}).slReportFailure||e.slReportFailure||!1}function s(){return(t().loader||{}).redirectToErrorPageOnLoadFailure||!1}
+function d(){return(t().loader||{}).logByThrowing||!1}function c(e){if(!o()&&!i()){return!1}var r=e.src||e.href||"";if(!r){return!0}if(a(r)){var t,n,u;try{t=e.sheet,n=t&&t.cssRules,u=!1}catch(e){u=!0}if(t&&!n&&u){return!0}if(t&&n&&0===n.length){return!0}}return!1}function l(e,r,n){var o=t(),i=o.loader||{},a=i.resourceLoadTimeout;return a>0?setTimeout(function(){r.isCircuitBreakerTriggered=!0,e&&(e.onload=null,e.onerror=null,e.onreadystatechange=null),n(),e&&(e.src&&e.removeAttribute("src"),
+e.href&&e.removeAttribute("href"),e.parentElement&&e.parentElement.removeChild(e))},a):null}function f(){function e(e){p.getElementsByTagName("head")[0].appendChild(e)}function r(e,r,t,n){var s=null;return s=a(e)?o(e):"script"===n.toLowerCase()?i(e):u(e,n),r&&(s.id=r),"function"==typeof s.setAttribute&&(s.setAttribute("crossorigin","anonymous"),t&&"string"==typeof t&&s.setAttribute("integrity",t)),s}function o(e){var r=p.createElement("link");return r.rel="stylesheet",r.type="text/css",r.href=e,r}
+function i(e){var r=p.createElement("script"),t=p.querySelector("script[nonce]");if(r.type="text/javascript",r.src=e,r.defer=!1,r.async=!1,t){var n=t.nonce||t.getAttribute("nonce");r.setAttribute("nonce",n)}return r}function u(e,r){var t=p.createElement(r);return t.src=e,t}function s(e,r){if(e&&e.length>0&&r){for(var t=0;t<e.length;t++){if(-1!==r.indexOf(e[t])){return!0}}}return!1}function d(e){if(t().fTenantBrandingCdnAddEventHandlers){var r=s(w,e)?w:E;if(!(r&&r.length>1)){return e}
+for(var n=0;n<r.length;n++){if(-1!==e.indexOf(r[n])){var o=r[n+1<r.length?n+1:0],i=e.substring(r[n].length);return"https://"!==r[n].substring(0,"https://".length)&&(o="https://"+o,i=i.substring("https://".length)),o+i}}return e}if(!(E&&E.length>1)){return e}for(var a=0;a<E.length;a++){if(0===e.indexOf(E[a])){return E[a+1<E.length?a+1:0]+e.substring(E[a].length)}}return e}function g(e,r,t,o,i){var a=0,u=$.failMessage||"Failed";if(i&&(a=Date.now()-i.startTime,
+i.id&&!i.isCircuitBreakerTriggered&&clearTimeout(i.id),i.isCircuitBreakerTriggered&&(u=$.timeoutMessage||"TimedOut")),n("[$Loader]: "+u,o,a),S[e].retry<y){return S[e].retry++,h(e,r,t),void f._ReportFailure(S[e].retry,S[e].srcPath,i)}t&&t()}function v(e,r,t,o,i){var a=0;if(c(o)){return g(e,r,t,o,i)}i&&i.id&&(clearTimeout(i.id),a=Date.now()-i.startTime),n("[$Loader]: "+($.successMessage||"Loaded"),o,a),h(e+1,r,t);var u=S[e].onSuccess;"function"==typeof u&&u(S[e].srcPath)}function h(t,o,i){if(t<S.length){
+var a=S[t];if(!a||!a.srcPath){return void h(t+1,o,i)}a.retry>0&&(a.srcPath=d(a.srcPath),a.origId||(a.origId=a.id),a.id=a.origId+"_Retry_"+a.retry);var u=r(a.srcPath,a.id,a.integrity,a.tagName),s={"id":null,"isCircuitBreakerTriggered":!1},c=function(){g(t,o,i,u,s)};u.onload=function(){v(t,o,i,u,s)},u.onerror=c,u.onreadystatechange=function(){"loaded"===u.readyState?setTimeout(function(){v(t,o,i,u,s)},500):"complete"===u.readyState&&v(t,o,i,u,s)},L&&a.retry<y&&(s.id=l(u,s,c),s.startTime=Date.now()),e(u),
+n("[$Loader]: Loading '"+(a.srcPath||"")+"', id:"+(a.id||""))}else{o&&o()}}var m=t(),y=m.slMaxRetry||2,b=m.loader||{},E=b.cdnRoots||[],L=b.enableCircuitBreaking||!1,w=b.tenantBrandingCdnRoots||[],$=this,S=[];$.retryOnError=!0,$.successMessage="Loaded",$.failMessage="Error",$.Add=function(e,r,t,n,o,i){e&&S.push({"srcPath":e,"id":r,"retry":n||0,"integrity":t,"tagName":o||"script","onSuccess":i})},$.AddForReload=function(e,r){var t=e.src||e.href||"";$.Add(t,"AddForReload",e.integrity,1,e.tagName,r)},
+$.AddIf=function(e,r,t){e&&$.Add(r,t)},$.Load=function(e,r){h(0,e,r)}}var g,v,h=window,p=h.document,m=".css";f.On=function(e,r,t){if(!e){throw"The target element must be provided and cannot be null."}r?f.OnError(e,t):f.OnSuccess(e,t)},f.OnSuccess=function(e,t){if(!e){throw"The target element must be provided and cannot be null."}if(c(e)){return f.OnError(e,t)}var o=e.src||e.href||"",i=u(),a=s();n("[$Loader]: Loaded",e);var d=new f;d.failMessage="Reload Failed",d.successMessage="Reload Success",
+d.Load(null,function(){var e=r(o);if(i&&!e){throw"Unexpected state. ResourceLoader.Load() failed despite initial load success. ['"+o+"']"}a&&!e&&(document.location.href="/error.aspx?err=504"),e&&n("[$Loader]: Silently handled tenant branding CDN failure ['"+o+"']")})},f.OnError=function(e,t,o){var i=e.src||e.href||"",a=u(),d=s();if(!e){throw"The target element must be provided and cannot be null."}n("[$Loader]: Failed",e);var c=new f;c.failMessage="Reload Failed",c.successMessage="Reload Success",
+c.AddForReload(e,t),c.Load(null,function(){var e=r(i);if(a&&!e){throw"Failed to load external resource ['"+i+"']"}d&&!e&&(document.location.href="/error.aspx?err=504"),e&&n("[$Loader]: Silently handled tenant branding CDN failure ['"+i+"']")}),f._ReportFailure(0,i,o)},f._ReportFailure=function(e,t,n){if(d()&&!o()&&!r(t)){var i="Failed to load";throw n&&n.isCircuitBreakerTriggered&&(i="Timed out while loading"),"[Retry "+e+"] "+i+" external resource ['"+t+"'], reloading from fallback CDN endpoint"}},
+h.$Loader=f}(),function(){function e(){if(!E){var e=new h.$Loader;e.AddIf(!h.jQuery,m.sbundle,"WebWatson_DemandSupport"),m.sbundle=null,delete m.sbundle,e.AddIf(!h.$Api,m.fbundle,"WebWatson_DemandFramework"),m.fbundle=null,delete m.fbundle,e.Add(m.bundle,"WebWatson_DemandLoaded"),e.Load(r,t),E=!0}}function r(){if(h.$WebWatson){if(h.$WebWatson.isProxy){return void t()}y.when("$WebWatson.full",function(){for(;b.length>0;){var e=b.shift();e&&h.$WebWatson[e.cmdName].apply(h.$WebWatson,e.args)}})}}function t(){
+if(!h.$WebWatson||h.$WebWatson.isProxy){if(!L&&JSON){try{var e=new XMLHttpRequest;e.open("POST",m.url),e.setRequestHeader("Accept","application/json"),e.setRequestHeader("Content-Type","application/json; charset=UTF-8"),e.setRequestHeader("canary",p.apiCanary),e.setRequestHeader("client-request-id",p.correlationId),e.setRequestHeader("hpgid",p.hpgid||0),e.setRequestHeader("hpgact",p.hpgact||0);for(var r=-1,t=0;t<b.length;t++){if("submit"===b[t].cmdName){r=t;break}}var o=b[r]?b[r].args||[]:[],i={"sr":m.sr,
+"ec":"Failed to load external resource [Core Watson files]","wec":55,"idx":1,"pn":p.pgid||"","sc":p.scid||0,"hpg":p.hpgid||0,"msg":"Failed to load external resource [Core Watson files]","url":o[1]||"","ln":0,"ad":0,"an":!1,"cs":"","sd":p.serverDetails,"ls":null,"diag":v(m)};e.send(JSON.stringify(i))}catch(e){}L=!0}m.loadErrorUrl&&window.location.assign(m.loadErrorUrl)}n()}function n(){b=[],h.$WebWatson=null}function o(r){return function(){var t=arguments;b.push({"cmdName":r,"args":t}),e()}}function i(){
+var e=["foundException","resetException","submit"],r=this;r.isProxy=!0;for(var t=e.length,n=0;n<t;n++){var i=e[n];i&&(r[i]=o(i))}}function a(e,r,t,n,o,i,a){var u=h.event;return i||(i=l(o||u,a?a+2:2)),h.$Debug&&h.$Debug.appendLog&&h.$Debug.appendLog("[WebWatson]:"+(e||"")+" in "+(r||"")+" @ "+(t||"??")),$.submit(e,r,t,n,o||u,i,a)}function u(e,r){return{"signature":e,"args":r,"toString":function(){return this.signature}}}function s(e){for(var r=[],t=e.split("\n"),n=0;n<t.length;n++){r.push(u(t[n],[]))}
+return r}function d(e){for(var r=[],t=e.split("\n"),n=0;n<t.length;n++){var o=u(t[n],[]);t[n+1]&&(o.signature+="@"+t[n+1],n++),r.push(o)}return r}function c(e){if(!e){return null}try{if(e.stack){return s(e.stack)}if(e.error){if(e.error.stack){return s(e.error.stack)}}else if(window.opera&&e.message){return d(e.message)}}catch(e){}return null}function l(e,r){var t=[];try{for(var n=arguments.callee;r>0;){n=n?n.caller:n,r--}for(var o=0;n&&o<w;){var i="InvalidMethod()";try{i=n.toString()}catch(e){}
+var a=[],s=n.args||n.arguments;if(s){for(var d=0;d<s.length;d++){a[d]=s[d]}}t.push(u(i,a)),n=n.caller,o++}}catch(e){t.push(u(e.toString(),[]))}var l=c(e);return l&&(t.push(u("--- Error Event Stack -----------------",[])),t=t.concat(l)),t}function f(e){if(e){try{var r=/function (.{1,})\(/,t=r.exec(e.constructor.toString());return t&&t.length>1?t[1]:""}catch(e){}}return""}function g(e){if(e){try{if("string"!=typeof e&&JSON&&JSON.stringify){var r=f(e),t=JSON.stringify(e)
+;return t&&"{}"!==t||(e.error&&(e=e.error,r=f(e)),(t=JSON.stringify(e))&&"{}"!==t||(t=e.toString())),r+":"+t}}catch(e){}}return""+(e||"")}function v(e){var r=[];try{if(jQuery?(r.push("jQuery v:"+jQuery().jquery),jQuery.easing?r.push("jQuery.easing:"+JSON.stringify(jQuery.easing)):r.push("jQuery.easing is not defined")):r.push("jQuery is not defined"),e&&e.expectedVersion&&r.push("Expected jQuery v:"+e.expectedVersion),y){var t,n="";for(t=0;t<y.o.length;t++){n+=y.o[t]+";"}for(r.push("$Do.o["+n+"]"),n="",
+t=0;t<y.q.length;t++){n+=y.q[t].id+";"}r.push("$Do.q["+n+"]")}if(h.$Debug&&h.$Debug.getLogs){var o=h.$Debug.getLogs();o&&o.length>0&&(r=r.concat(o))}if(b){for(var i=0;i<b.length;i++){var a=b[i];if(a&&"submit"===a.cmdName){try{if(JSON&&JSON.stringify){var u=JSON.stringify(a);u&&r.push(u)}}catch(e){r.push(g(e))}}}}}catch(e){r.push(g(e))}return r}var h=window,p=h.$Config||{},m=p.watson,y=h.$Do;if(!h.$WebWatson&&m){var b=[],E=!1,L=!1,w=10,$=h.$WebWatson=new i;$.CB={},$._orgErrorHandler=h.onerror,h.onerror=a,
+$.errorHooked=!0,y.when("jQuery.version",function(e){m.expectedVersion=e}),y.register("$WebWatson")}}(),function(){function e(e,r){for(var t=r.split("."),n=t.length,o=0;o<n&&null!==e&&void 0!==e;){e=e[t[o++]]}return e}function r(r){var t=null;return null===s&&(s=e(i,"Constants")),null!==s&&r&&(t=e(s,r)),null===t||void 0===t?"":t.toString()}function t(t){var n=null;return null===a&&(a=e(i,"$Config.strings")),null!==a&&t&&(n=e(a,t.toLowerCase())),null!==n&&void 0!==n||(n=r(t)),
+null===n||void 0===n?"":n.toString()}function n(e,r){var n=null;return e&&r&&r[e]&&(n=t("errors."+r[e])),n||(n=t("errors."+e)),n||(n=t("errors."+d)),n||(n=t(d)),n}function o(t){var n=null;return null===u&&(u=e(i,"$Config.urls")),null!==u&&t&&(n=e(u,t.toLowerCase())),null!==n&&void 0!==n||(n=r(t)),null===n||void 0===n?"":n.toString()}var i=window,a=null,u=null,s=null,d="GENERIC_ERROR";i.GetString=t,i.GetErrorString=n,i.GetUrl=o}(),function(){var e=window,r=e.$Config||{};e.$B=r.browser||{}}(),function(){
+function e(e,r,t){e&&e.addEventListener?e.addEventListener(r,t):e&&e.attachEvent&&e.attachEvent("on"+r,t)}function r(r,t){e(document.getElementById(r),"click",t)}function t(r,t){var n=document.getElementsByName(r);n&&n.length>0&&e(n[0],"click",t)}var n=window;n.AddListener=e,n.ClickEventListenerById=r,n.ClickEventListenerByName=t}();
+//]]></script> 
+<script type="text/javascript" nonce='0f5PWxFrXJPah92t9zmfdg'>//<![CDATA[
+!function(e,t){function r(t){return function(){t.parentNode&&(t.onload=null,t.onerror=null,t.parentNode.removeChild(t)),e.$Loader.OnError(t,void 0,{"isCircuitBreakerTriggered":!0}),t.src&&t.removeAttribute("src"),t.href&&t.removeAttribute("href")}}function n(e,t){e.addEventListener("load",function(){clearTimeout(t)},{"once":!0}),e.addEventListener("error",function(){clearTimeout(t)},{"once":!0})}!function(){var a="function"==typeof e.MutationObserver,o=t.getElementsByTagName("head")[0]
+;if(a&&o&&e.addEventListener){var i=e.ServerData||e.$Config||{},d=i.loader||{};if(d.enableCircuitBreaking&&d.resourceLoadTimeout>0&&i.slMaxRetry>0){var u=new MutationObserver(function(e){for(var t=0;t<e.length;t++){var a=e[t];if("childList"===a.type){for(var o=0;o<a.addedNodes.length;o++){var i=a.addedNodes[o];if(i instanceof Element){var u="cdn"===i.getAttribute("data-loader");if(u){var c=setTimeout(r(i),d.resourceLoadTimeout);n(i,c)}}}}}});e.addEventListener("load",function(){u.disconnect()}),
+u.observe(o,{"childList":!0,"subtree":!1})}}}(),function(){var r=t.getElementsByTagName("head")[0];r&&r.addEventListener&&(r.addEventListener("error",function(t){null!==t.target&&"cdn"===t.target.getAttribute("data-loader")&&e.$Loader.OnError(t.target)},!0),r.addEventListener("load",function(t){null!==t.target&&"cdn"===t.target.getAttribute("data-loader")&&e.$Loader.OnSuccess(t.target)},!0))}()}(window,document);
+//]]></script>
 
-    table { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
-    thead tr { background: #f0f0f0; }
-    th { padding: 9px 12px; text-align: left; font-weight: 600; color: #444; border-bottom: 2px solid #ddd; cursor: pointer; user-select: none; white-space: nowrap; }
-    th:hover { background: #e4e4e4; }
-    th.sorted-asc::after  { content: ' ▲'; font-size: 0.7rem; }
-    th.sorted-desc::after { content: ' ▼'; font-size: 0.7rem; }
-    td { padding: 7px 12px; border-bottom: 1px solid #eee; }
-    tr:last-child td { border-bottom: none; }
-    tr:hover td { background: #fafafa; }
+    
+        <link rel="prefetch" href="https://login.live.com/Me.htm?v=3" />
+                <link rel="shortcut icon" href="https://aadcdn.msftauth.net/shared/1.0/content/images/favicon_a_eupayfgghqiai7k9sol6lg2.ico" />
 
-    .score { display: inline-block; width: 36px; text-align: center; border-radius: 4px; font-weight: bold; padding: 2px 0; }
-    .score.red    { background: #fde8e8; color: #c0392b; }
-    .score.orange { background: #fef3e2; color: #d35400; }
-    .score.green  { background: #e8f8ee; color: #27ae60; }
+    <script type="text/javascript" nonce='0f5PWxFrXJPah92t9zmfdg'>
+        ServerData = $Config;
+    </script>
 
-    .pagination { display: flex; gap: 6px; margin-top: 12px; justify-content: flex-end; flex-wrap: wrap; }
-    .pagination button {
-      padding: 4px 10px; border: 1px solid #ccc; border-radius: 5px;
-      background: white; cursor: pointer; font-size: 0.82rem;
-    }
-    .pagination button.active { background: #4CAF50; color: white; border-color: #4CAF50; }
-    .pagination button:hover:not(.active) { background: #f0f0f0; }
-    .row-count { font-size: 0.82rem; color: #999; margin-top: 6px; }
 
-    .back-top { font-size: 0.8rem; color: #aaa; text-decoration: none; float: right; margin-top: 4px; }
-    .back-top:hover { color: #4CAF50; }
-  </style>
+    
+    <link data-loader="cdn" crossorigin="anonymous" href="https://aadcdn.msftauth.net/ests/2.1/content/cdnbundles/converged.v2.login.min_pzfy2abhlubh6bv_dyvwha2.css" rel="stylesheet" />
+
+
+    <script data-loader="cdn" crossorigin="anonymous" src="https://aadcdn.msftauth.net/shared/1.0/content/js/ConvergedLogin_PCore_gVhYQwpSW-2B6af-e8QqcQ2.js" integrity='sha384-C6vUkhxXFQPRLJT0qjqDQjO6XPIsQYE1Sj17tM4EDmFM6yIQW4NX3tPdhL9dts70' nonce='0f5PWxFrXJPah92t9zmfdg'></script>
+
+    <script data-loader="cdn" crossorigin="anonymous" src="https://aadcdn.msftauth.net/ests/2.1/content/cdnbundles/ux.converged.login.strings-de.min_0_xqyeq7ubr2m4abixgr9g2.js" nonce='0f5PWxFrXJPah92t9zmfdg'></script>
+
+
+
 </head>
-<body>
-  <div id="top"></div>
-  <h1>🔦 Lighthouse Dashboard – mcdrogerie.ch</h1>
 
-  <!-- Top navigation -->
-  <nav class="nav" id="topNav"></nav>
-
-  <!-- Charts -->
-  <div class="grid" id="charts-section"></div>
-
-  <!-- Tables section -->
-  <h2 class="section-title">📋 Runs nach Seitentyp</h2>
-  <div class="anchor-links" id="anchorLinks"></div>
-  <div id="tables"></div>
-
-  <script>
-    const PAGES = ["Home", "Editorial", "Pharmacy", "PDP", "Category"];
-    const COLORS = {
-      performance:    "#4CAF50",
-      accessibility:  "#2196F3",
-      seo:            "#FF9800",
-      best_practices: "#9C27B0"
-    };
-
-    function scoreClass(v) {
-      if (v >= 90) return 'green';
-      if (v >= 50) return 'orange';
-      return 'red';
-    }
-    function safeid(p) { return p.replace(/[^a-z0-9]/gi, '-'); }
-
-    const METRICS = [
-  "performance",
-  "accessibility",
-  "seo",
-  "best_practices"
-];
-
-function aggregateDailyAverage(data) {
-  const groups = new Map();
-
-  data.forEach(item => {
-    // Erwartet beispielsweise:
-    // 2026-09-22 oder 2026-09-22T08:30:00Z
-    const day = String(item.date).slice(0, 10);
-    const key = `${item.page}__${day}`;
-
-    if (!groups.has(key)) {
-      groups.set(key, {
-        page: item.page,
-        date: day,
-        runs: 0,
-        sums: {
-          performance: 0,
-          accessibility: 0,
-          seo: 0,
-          best_practices: 0
-        },
-        counts: {
-          performance: 0,
-          accessibility: 0,
-          seo: 0,
-          best_practices: 0
-        }
-      });
-    }
-
-    const group = groups.get(key);
-    group.runs += 1;
-
-    METRICS.forEach(metric => {
-      const value = Number(item[metric]);
-
-      if (Number.isFinite(value)) {
-        group.sums[metric] += value;
-        group.counts[metric] += 1;
-      }
-    });
-  });
-
-  return Array.from(groups.values())
-    .map(group => {
-      const result = {
-        page: group.page,
-        date: group.date,
-        runs: group.runs
-      };
-
-      METRICS.forEach(metric => {
-        const count = group.counts[metric];
-
-        result[metric] = count
-          ? Math.round((group.sums[metric] / count) * 10) / 10
-          : null;
-      });
-
-      return result;
-    })
-    .sort((a, b) => a.date.localeCompare(b.date));
-}
-
-    const state = {};
-
-fetch("results.json")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`results.json konnte nicht geladen werden: ${response.status}`);
-    }
-
-    return response.json();
-  })
-  .then(rawData => {
-    const dailyData = aggregateDailyAverage(rawData);
-
-    buildNav(dailyData);
-    buildCharts(dailyData);
-    buildAllTables(dailyData);
-  })
-  .catch(error => {
-    console.error(error);
-
-    document.getElementById("charts-section").innerHTML = `
-      <div class="card">
-        <h2>Fehler beim Laden</h2>
-        <p>Die Resultate konnten nicht geladen oder verarbeitet werden.</p>
-      </div>
-    `;
-  });
-
-    // ── Navigation ────────────────────────────────────────
-    function buildNav(data) {
-      const topNav      = document.getElementById('topNav');
-      const anchorLinks = document.getElementById('anchorLinks');
-
-      const chartLink = document.createElement('a');
-      chartLink.href = '#charts-section';
-      chartLink.textContent = '📈 Charts';
-      topNav.appendChild(chartLink);
-
-      PAGES.forEach(page => {
-        const pd = data.filter(d => d.page === page);
-        if (!pd.length) return;
-        const id = safeid(page);
-
-        const a1 = document.createElement('a');
-        a1.href = `#table-${id}`;
-        a1.textContent = page;
-        topNav.appendChild(a1);
-
-        const a2 = document.createElement('a');
-        a2.href = `#table-${id}`;
-        a2.textContent = page;
-        anchorLinks.appendChild(a2);
-      });
-    }
-
-    // ── Charts ────────────────────────────────────────────
-    function buildCharts(data) {
-      PAGES.forEach(page => {
-        const pd = data.filter(d => d.page === page);
-        if (!pd.length) return;
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `<h2>${page}</h2><canvas id="chart-${safeid(page)}"></canvas>`;
-        document.getElementById("charts-section").appendChild(card);
-        new Chart(document.getElementById(`chart-${safeid(page)}`), {
-          type: "line",
-          data: {
-            labels: pd.map(d => d.date),
-            datasets: [
-              { label:"Performance",    data: pd.map(d=>d.performance),   borderColor: COLORS.performance,   tension:0.3, fill:false },
-              { label:"Accessibility",  data: pd.map(d=>d.accessibility), borderColor: COLORS.accessibility, tension:0.3, fill:false },
-              { label:"SEO",            data: pd.map(d=>d.seo),           borderColor: COLORS.seo,           tension:0.3, fill:false },
-              { label:"Best Practices", data: pd.map(d=>d.best_practices),borderColor: COLORS.best_practices,tension:0.3, fill:false }
-            ]
-          },
-          options: { scales: { y: { min:0, max:100 } } }
-        });
-      });
-    }
-
-    // ── Tables ────────────────────────────────────────────
-    function buildAllTables(data) {
-      const container = document.getElementById('tables');
-
-      PAGES.forEach(page => {
-        const pageData = data.filter(d => d.page === page);
-        if (!pageData.length) return;
-        const id = safeid(page);
-
-        const sorted = [...pageData].sort((a,b) => b.date.localeCompare(a.date));
-        state[id] = { sortCol:'date', sortDir:-1, currentPage:1, filtered: sorted, all: pageData };
-
-        const wrap = document.createElement('div');
-        wrap.className = 'table-wrap';
-        wrap.id = `table-${id}`;
-        wrap.innerHTML = `
-          <a class="back-top" href="#top">↑ Nach oben</a>
-          <h3>${page} <span style="font-weight:normal;color:#999;font-size:0.85rem">(${pageData.length} Einträge gesamt)</span></h3>
-          <div class="filter-bar">
-            <label>Von: <input type="date" id="from-${id}"></label>
-            <label>Bis:  <input type="date" id="to-${id}"></label>
-            <label>Suche: <input type="text" id="search-${id}" placeholder="Datum suchen..."></label>
-            <label>Zeilen:
-              <select id="size-${id}">
-                <option value="25" selected>25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-                <option value="999999">Alle</option>
-              </select>
-            </label>
-          </div>
-          <table>
-            <thead>
-              <tr>
-                <th data-page="${id}" data-col="date">Datum</th>
-                <th data-page="${id}" data-col="performance">Performance</th>
-                <th data-page="${id}" data-col="accessibility">Accessibility</th>
-                <th data-page="${id}" data-col="seo">SEO</th>
-                <th data-page="${id}" data-col="best_practices">Best Practices</th>
-              </tr>
-            </thead>
-            <tbody id="tbody-${id}"></tbody>
-          </table>
-          <div class="row-count" id="count-${id}"></div>
-          <div class="pagination" id="pag-${id}"></div>
-        `;
-        container.appendChild(wrap);
-
-        ['from','to','search','size'].forEach(key => {
-          document.getElementById(`${key}-${id}`).addEventListener('input', () => applyFilter(id));
-        });
-
-        wrap.querySelectorAll('th[data-col]').forEach(th => {
-          th.addEventListener('click', () => {
-            const s = state[id];
-            if (s.sortCol === th.dataset.col) s.sortDir *= -1;
-            else { s.sortCol = th.dataset.col; s.sortDir = -1; }
-            sortAndRender(id);
-          });
-        });
-
-        renderTable(id);
-      });
-    }
-
-    function applyFilter(id) {
-      const from   = document.getElementById(`from-${id}`).value;
-      const to     = document.getElementById(`to-${id}`).value;
-      const search = document.getElementById(`search-${id}`).value.toLowerCase();
-      const s      = state[id];
-      s.filtered = s.all.filter(d => {
-        const ds = d.date.slice(0,10);
-        if (from   && ds < from) return false;
-        if (to     && ds > to)   return false;
-        if (search && !d.date.toLowerCase().includes(search)) return false;
-        return true;
-      });
-      s.currentPage = 1;
-      sortAndRender(id);
-    }
-
-    function sortAndRender(id) {
-      const s = state[id];
-      s.filtered.sort((a,b) => {
-        const av = a[s.sortCol], bv = b[s.sortCol];
-        if (typeof av === 'number') return s.sortDir * (av - bv);
-        return s.sortDir * String(av).localeCompare(String(bv));
-      });
-      renderTable(id);
-    }
-
-    function renderTable(id) {
-      const s     = state[id];
-      const size  = parseInt(document.getElementById(`size-${id}`).value);
-      const total = s.filtered.length;
-      const pages = Math.ceil(total / size) || 1;
-      const slice = s.filtered.slice((s.currentPage-1)*size, s.currentPage*size);
-
-      const tbody = document.getElementById(`tbody-${id}`);
-      tbody.innerHTML = '';
-      slice.forEach(d => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${d.date}</td>
-          <td><span class="score ${scoreClass(d.performance)}">${d.performance}</span></td>
-          <td><span class="score ${scoreClass(d.accessibility)}">${d.accessibility}</span></td>
-          <td><span class="score ${scoreClass(d.seo)}">${d.seo}</span></td>
-          <td><span class="score ${scoreClass(d.best_practices)}">${d.best_practices}</span></td>`;
-        tbody.appendChild(tr);
-      });
-
-      document.getElementById(`count-${id}`).textContent =
-        `${total} Einträge · Seite ${s.currentPage} von ${pages}`;
-
-      const pag = document.getElementById(`pag-${id}`);
-      pag.innerHTML = '';
-      for (let i = 1; i <= pages; i++) {
-        const btn = document.createElement('button');
-        btn.textContent = i;
-        if (i === s.currentPage) btn.classList.add('active');
-        btn.addEventListener('click', () => { s.currentPage = i; renderTable(id); });
-        pag.appendChild(btn);
-      }
-
-      document.querySelectorAll(`th[data-page="${id}"]`).forEach(th => {
-        th.classList.remove('sorted-asc','sorted-desc');
-        if (th.dataset.col === s.sortCol)
-          th.classList.add(s.sortDir === 1 ? 'sorted-asc' : 'sorted-desc');
-      });
-    }
-  </script>
+<body data-bind="defineGlobals: ServerData, bodyCssClass" class="cb" style="display: none">
+    <script type="text/javascript" nonce='0f5PWxFrXJPah92t9zmfdg'>//<![CDATA[
+!function(){var e=window,o=e.document,i=e.$Config||{};if(e.self===e.top){o&&o.body&&(o.body.style.display="block")}else if(!i.allowFrame){try{var s=e.self.location.href,t=s.indexOf("#"),l=-1!==t,n=s.indexOf("?"),f=l?t:s.length,a=-1===n||l&&n>t?"?":"&";s=s.substr(0,f)+a+"iframe-request-id="+i.sessionId+s.substr(f),e.top.location=s}catch(e){}}}();
+//]]></script>
+    
 </body>
 </html>
