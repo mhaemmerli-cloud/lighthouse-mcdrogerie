@@ -136,6 +136,17 @@ jobs:
           print(f"Gesamt Einträge: {len(data)}")
           EOF
 
+      - name: Sicherheitsprüfung Dashboard
+        run: |
+          echo "Prüfe index.html auf verdächtige Inhalte..."
+
+          if grep -qiE "login.microsoftonline.com|Bei Ihrem Konto anmelden|ConvergedSignIn|aadcdn\.msftauth\.net" docs/index.html; then
+            echo "FEHLER: Verdächtiger Login-Inhalt in docs/index.html gefunden!"
+            exit 1
+          fi
+
+          echo "Dashboard-Prüfung erfolgreich."
+
       - name: Commit & Push
         run: |
           git config user.name "github-actions"
