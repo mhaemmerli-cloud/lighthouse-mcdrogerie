@@ -12,6 +12,6 @@ name: Home: url: https://www.mcdrogerie.ch/
 
 name: Editorial: url: https://www.mcdrogerie.ch/e/flohsamen-das-kleine-wundermittel-mit-grosser-wirkung
 
-name: PDP: url: https://www.mcdrogerie.ch/kijimea-reizdarm-pro-kapsel-84-stuck
+name: PDP: url: https://www.mcdrogerie.ch/a/kijimea-reizdarm-pro-kapsel-84-stuck-1117904
 
 name: Category: url: https://www.mcdrogerie.ch/c/gesundheit-vitalitaet/
