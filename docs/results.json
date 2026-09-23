@@ -14142,5 +14142,29 @@
     "accessibility": 93,
     "seo": 100,
     "best_practices": 73
+  },
+  {
+    "date": "2026-09-23 07:12",
+    "page": "Editorial",
+    "performance": 33,
+    "accessibility": 95,
+    "seo": 92,
+    "best_practices": 73
+  },
+  {
+    "date": "2026-09-23 07:12",
+    "page": "Home",
+    "performance": 37,
+    "accessibility": 93,
+    "seo": 100,
+    "best_practices": 73
+  },
+  {
+    "date": "2026-09-23 07:12",
+    "page": "Category",
+    "performance": 59,
+    "accessibility": 93,
+    "seo": 100,
+    "best_practices": 73
   }
 ]
