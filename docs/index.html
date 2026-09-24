@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Lighthouse Dashboard – mcdrogerie.ch</title>
+  <title>Lighthouse Dashboard - McDrogerie.ch</title>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -28,7 +28,6 @@
       margin-bottom: 24px;
     }
 
-    /* Navigation */
     .nav {
       display: flex;
       gap: 10px;
@@ -36,7 +35,8 @@
       margin-bottom: 28px;
     }
 
-    .nav a {
+    .nav a,
+    .anchor-links a {
       padding: 6px 14px;
       background: white;
       border: 1px solid #ddd;
@@ -47,7 +47,8 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
-    .nav a:hover {
+    .nav a:hover,
+    .anchor-links a:hover {
       background: #4CAF50;
       color: white;
       border-color: #4CAF50;
@@ -56,11 +57,10 @@
     h2.section-title {
       color: #333;
       font-size: 1.3rem;
-      margin-top: 48px;
+      margin-top: 32px;
       margin-bottom: 4px;
     }
 
-    /* Anchor-Links oberhalb der Tabellen */
     .anchor-links {
       display: flex;
       gap: 10px;
@@ -68,36 +68,13 @@
       margin-bottom: 20px;
     }
 
-    .anchor-links a {
-      padding: 5px 13px;
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 20px;
-      font-size: 0.83rem;
-      color: #333;
-      text-decoration: none;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    }
-
-    .anchor-links a:hover {
-      background: #4CAF50;
-      color: white;
-      border-color: #4CAF50;
-    }
-
-    /* Durchschnittsübersicht */
-    .summary-section {
-      margin-bottom: 32px;
-    }
-
     .summary-note {
       color: #777;
       font-size: 0.85rem;
-      margin-top: -4px;
+      margin-top: 4px;
       margin-bottom: 16px;
     }
 
-    /* Charts */
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -119,10 +96,9 @@
 
     .chart-container {
       position: relative;
-      min-height: 320px;
+      min-height: 360px;
     }
 
-    /* Tabellen */
     .table-wrap {
       background: white;
       border-radius: 8px;
@@ -207,7 +183,6 @@
       background: #fafafa;
     }
 
-    /* Scorefarben */
     .score {
       display: inline-block;
       min-width: 42px;
@@ -233,11 +208,10 @@
     }
 
     .score.na {
-      background: #eeeeee;
+      background: #eee;
       color: #777;
     }
 
-    /* Pagination */
     .pagination {
       display: flex;
       gap: 6px;
@@ -283,7 +257,6 @@
       color: #4CAF50;
     }
 
-    /* Fehlermeldung */
     .error-box {
       background: #fde8e8;
       color: #c0392b;
@@ -293,7 +266,6 @@
       margin-bottom: 24px;
     }
 
-    /* Mobile Darstellung */
     @media (max-width: 900px) {
       body {
         padding: 12px;
@@ -304,7 +276,7 @@
       }
 
       .chart-container {
-        min-height: 280px;
+        min-height: 320px;
       }
     }
   </style>
@@ -313,34 +285,28 @@
 <body>
   <div id="top"></div>
 
-  <h1>🔦 Lighthouse Dashboard – mcdrogerie.ch</h1>
+  <h1>🔦 Lighthouse Dashboard - McDrogerie.ch</h1>
 
   <p class="subtitle">
-    Übersicht der Lighthouse-Messungen für ausgewählte Seitentypen von mcdrogerie.ch.
+    Übersicht der Lighthouse-Messungen für ausgewählte Seitentypen von McDrogerie.ch.
   </p>
 
-  <!-- Navigation -->
   <nav class="nav" id="topNav"></nav>
 
-  <!-- Durchschnittsübersicht -->
-  <section class="summary-section" id="summary-section">
-    <h2 class="section-title">📊 Durchschnittswerte nach Seitentyp</h2>
+  <h2 class="section-title" id="charts-title">
+    📈 Einzelmessungen und Tagesmedian
+  </h2>
 
-    <p class="summary-note">
-      Die Werte entsprechen dem arithmetischen Mittel aller vorhandenen
-      Messungen in der results.json.
-    </p>
-
-    <div id="summaryTable"></div>
-  </section>
-
-  <!-- Charts -->
-  <h2 class="section-title" id="charts-title">📈 Verlauf der Einzelmessungen</h2>
+  <p class="summary-note">
+    Durchgezogene Linien zeigen die Einzelmessungen. Dicke, gestrichelte
+    Linien zeigen den Median aller Messungen des jeweiligen Kalendertags.
+  </p>
 
   <div class="grid" id="charts-section"></div>
 
-  <!-- Tabellen -->
-  <h2 class="section-title">📋 Einzelmessungen nach Seitentyp</h2>
+  <h2 class="section-title">
+    📋 Einzelmessungen nach Seitentyp
+  </h2>
 
   <div class="anchor-links" id="anchorLinks"></div>
 
@@ -351,14 +317,9 @@
       "Home",
       "Editorial",
       "PDP",
-      "Category"
-    ];
-
-    const METRICS = [
-      "performance",
-      "accessibility",
-      "seo",
-      "best_practices"
+      "Category",
+      "Brand",
+      "Pharmacy"
     ];
 
     const COLORS = {
@@ -366,6 +327,13 @@
       accessibility: "#2196F3",
       seo: "#FF9800",
       best_practices: "#9C27B0"
+    };
+
+    const MEDIAN_COLORS = {
+      performance: "#145A20",
+      accessibility: "#0D47A1",
+      seo: "#C44500",
+      best_practices: "#4A148C"
     };
 
     const state = {};
@@ -386,37 +354,105 @@
       return "red";
     }
 
-    function formatScore(value) {
-      if (!Number.isFinite(value)) {
-        return "–";
-      }
-
-      return value.toFixed(1);
-    }
-
     function safeid(page) {
       return page.replace(/[^a-z0-9]/gi, "-");
     }
 
-    function calculateAverage(data, metric) {
-      const validValues = data
-        .map(item => Number(item[metric]))
-        .filter(value => Number.isFinite(value));
+    function calculateMedian(values) {
+      const sortedValues = values
+        .map(value => Number(value))
+        .filter(value => Number.isFinite(value))
+        .sort((a, b) => a - b);
 
-      if (!validValues.length) {
+      if (!sortedValues.length) {
         return null;
       }
 
-      const sum = validValues.reduce((total, value) => total + value, 0);
+      const middleIndex = Math.floor(
+        sortedValues.length / 2
+      );
 
-      return sum / validValues.length;
+      if (sortedValues.length % 2 === 0) {
+        return (
+          sortedValues[middleIndex - 1] +
+          sortedValues[middleIndex]
+        ) / 2;
+      }
+
+      return sortedValues[middleIndex];
+    }
+
+    function calculateDailyMedian(data, metric) {
+      const dailyGroups = new Map();
+
+      data.forEach(item => {
+        const day = String(item.date).slice(0, 10);
+        const value = Number(item[metric]);
+
+        if (!day || !Number.isFinite(value)) {
+          return;
+        }
+
+        if (!dailyGroups.has(day)) {
+          dailyGroups.set(day, []);
+        }
+
+        dailyGroups.get(day).push(value);
+      });
+
+      return Array.from(dailyGroups.entries())
+        .map(([date, values]) => ({
+          date,
+          value: calculateMedian(values),
+          runs: values.length
+        }))
+        .sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    function mapDailyMedianToRuns(
+      sortedData,
+      dailyMedianData
+    ) {
+      const medianByDate = Object.fromEntries(
+        dailyMedianData.map(item => [
+          item.date,
+          item.value
+        ])
+      );
+
+      const lastIndexByDate = {};
+
+      sortedData.forEach((item, index) => {
+        const day = String(item.date).slice(0, 10);
+        lastIndexByDate[day] = index;
+      });
+
+      return sortedData.map((item, index) => {
+        const day = String(item.date).slice(0, 10);
+
+        if (lastIndexByDate[day] === index) {
+          return medianByDate[day] ?? null;
+        }
+
+        return null;
+      });
+    }
+
+    function getRunsForDay(data, date) {
+      const day = String(date).slice(0, 10);
+
+      return data.filter(
+        item =>
+          String(item.date).slice(0, 10) === day
+      ).length;
     }
 
     fetch("results.json")
       .then(response => {
         if (!response.ok) {
           throw new Error(
-            `results.json konnte nicht geladen werden. HTTP-Status: ${response.status}`
+            "results.json konnte nicht geladen werden. " +
+            `HTTP-Status: ${response.status}`
           );
         }
 
@@ -424,11 +460,12 @@
       })
       .then(data => {
         if (!Array.isArray(data)) {
-          throw new Error("results.json enthält kein gültiges JSON-Array.");
+          throw new Error(
+            "results.json enthält kein gültiges JSON-Array."
+          );
         }
 
         buildNav(data);
-        buildSummary(data);
         buildCharts(data);
         buildAllTables(data);
       })
@@ -437,33 +474,40 @@
 
         const errorBox = document.createElement("div");
         errorBox.className = "error-box";
+
         errorBox.innerHTML = `
           <strong>Fehler beim Laden der Ergebnisse</strong>
           <p>${error.message}</p>
         `;
 
-        document
-          .getElementById("summary-section")
-          .insertAdjacentElement("afterend", errorBox);
+        const chartsTitle =
+          document.getElementById("charts-title");
+
+        chartsTitle.insertAdjacentElement(
+          "afterend",
+          errorBox
+        );
       });
 
-    // Navigation
     function buildNav(data) {
-      const topNav = document.getElementById("topNav");
-      const anchorLinks = document.getElementById("anchorLinks");
+      const topNav =
+        document.getElementById("topNav");
 
-      const summaryLink = document.createElement("a");
-      summaryLink.href = "#summary-section";
-      summaryLink.textContent = "📊 Durchschnitt";
-      topNav.appendChild(summaryLink);
+      const anchorLinks =
+        document.getElementById("anchorLinks");
 
-      const chartLink = document.createElement("a");
+      const chartLink =
+        document.createElement("a");
+
       chartLink.href = "#charts-title";
-      chartLink.textContent = "📈 Charts";
+      chartLink.textContent = "📈 Tagesmedian";
+
       topNav.appendChild(chartLink);
 
       PAGES.forEach(page => {
-        const pageData = data.filter(item => item.page === page);
+        const pageData = data.filter(
+          item => item.page === page
+        );
 
         if (!pageData.length) {
           return;
@@ -471,140 +515,85 @@
 
         const id = safeid(page);
 
-        const navigationLink = document.createElement("a");
+        const navigationLink =
+          document.createElement("a");
+
         navigationLink.href = `#table-${id}`;
         navigationLink.textContent = page;
+
         topNav.appendChild(navigationLink);
 
-        const anchorLink = document.createElement("a");
+        const anchorLink =
+          document.createElement("a");
+
         anchorLink.href = `#table-${id}`;
         anchorLink.textContent = page;
+
         anchorLinks.appendChild(anchorLink);
       });
     }
 
-    // Durchschnittsübersicht
-    function buildSummary(data) {
-      const container = document.getElementById("summaryTable");
-
-      const wrap = document.createElement("div");
-      wrap.className = "table-wrap";
-
-      let rows = "";
-
-      PAGES.forEach(page => {
-        const pageData = data.filter(item => item.page === page);
-
-        if (!pageData.length) {
-          return;
-        }
-
-        const averagePerformance = calculateAverage(
-          pageData,
-          "performance"
-        );
-
-        const averageAccessibility = calculateAverage(
-          pageData,
-          "accessibility"
-        );
-
-        const averageSeo = calculateAverage(
-          pageData,
-          "seo"
-        );
-
-        const averageBestPractices = calculateAverage(
-          pageData,
-          "best_practices"
-        );
-
-        rows += `
-          <tr>
-            <td>
-              <strong>${page}</strong>
-            </td>
-
-            <td>
-              <span class="score ${scoreClass(averagePerformance)}">
-                ${formatScore(averagePerformance)}
-              </span>
-            </td>
-
-            <td>
-              <span class="score ${scoreClass(averageAccessibility)}">
-                ${formatScore(averageAccessibility)}
-              </span>
-            </td>
-
-            <td>
-              <span class="score ${scoreClass(averageSeo)}">
-                ${formatScore(averageSeo)}
-              </span>
-            </td>
-
-            <td>
-              <span class="score ${scoreClass(averageBestPractices)}">
-                ${formatScore(averageBestPractices)}
-              </span>
-            </td>
-
-            <td>
-              ${pageData.length}
-            </td>
-          </tr>
-        `;
-      });
-
-      if (!rows) {
-        wrap.innerHTML = `
-          <p>Keine Messwerte vorhanden.</p>
-        `;
-
-        container.appendChild(wrap);
-        return;
-      }
-
-      wrap.innerHTML = `
-        <table>
-          <thead>
-            <tr>
-              <th>Seitentyp</th>
-              <th>Ø Performance</th>
-              <th>Ø Accessibility</th>
-              <th>Ø SEO</th>
-              <th>Ø Best Practices</th>
-              <th>Anzahl Runs</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            ${rows}
-          </tbody>
-        </table>
-      `;
-
-      container.appendChild(wrap);
-    }
-
-    // Charts
     function buildCharts(data) {
-      const chartsContainer = document.getElementById("charts-section");
+      const chartsContainer =
+        document.getElementById("charts-section");
 
       PAGES.forEach(page => {
-        const pageData = data.filter(item => item.page === page);
+        const pageData = data.filter(
+          item => item.page === page
+        );
 
         if (!pageData.length) {
           return;
         }
 
-        const sortedData = [...pageData].sort((a, b) =>
-          String(a.date).localeCompare(String(b.date))
+        const sortedData = [...pageData].sort(
+          (a, b) =>
+            String(a.date).localeCompare(
+              String(b.date)
+            )
         );
+
+        const performanceMedian =
+          mapDailyMedianToRuns(
+            sortedData,
+            calculateDailyMedian(
+              sortedData,
+              "performance"
+            )
+          );
+
+        const accessibilityMedian =
+          mapDailyMedianToRuns(
+            sortedData,
+            calculateDailyMedian(
+              sortedData,
+              "accessibility"
+            )
+          );
+
+        const seoMedian =
+          mapDailyMedianToRuns(
+            sortedData,
+            calculateDailyMedian(
+              sortedData,
+              "seo"
+            )
+          );
+
+        const bestPracticesMedian =
+          mapDailyMedianToRuns(
+            sortedData,
+            calculateDailyMedian(
+              sortedData,
+              "best_practices"
+            )
+          );
 
         const pageId = safeid(page);
 
-        const card = document.createElement("div");
+        const card =
+          document.createElement("div");
+
         card.className = "card";
 
         card.innerHTML = `
@@ -617,47 +606,75 @@
 
         chartsContainer.appendChild(card);
 
-        const canvas = document.getElementById(`chart-${pageId}`);
+        const canvas =
+          document.getElementById(
+            `chart-${pageId}`
+          );
 
         new Chart(canvas, {
           type: "line",
 
           data: {
-            labels: sortedData.map(item => item.date),
+            labels: sortedData.map(
+              item => item.date
+            ),
 
             datasets: [
-              {
-                label: "Performance",
-                data: sortedData.map(item => item.performance),
-                borderColor: COLORS.performance,
-                backgroundColor: COLORS.performance,
-                tension: 0.3,
-                fill: false
-              },
-              {
-                label: "Accessibility",
-                data: sortedData.map(item => item.accessibility),
-                borderColor: COLORS.accessibility,
-                backgroundColor: COLORS.accessibility,
-                tension: 0.3,
-                fill: false
-              },
-              {
-                label: "SEO",
-                data: sortedData.map(item => item.seo),
-                borderColor: COLORS.seo,
-                backgroundColor: COLORS.seo,
-                tension: 0.3,
-                fill: false
-              },
-              {
-                label: "Best Practices",
-                data: sortedData.map(item => item.best_practices),
-                borderColor: COLORS.best_practices,
-                backgroundColor: COLORS.best_practices,
-                tension: 0.3,
-                fill: false
-              }
+              createRunDataset(
+                "Performance",
+                sortedData.map(
+                  item => Number(item.performance)
+                ),
+                COLORS.performance
+              ),
+
+              createMedianDataset(
+                "Performance Tagesmedian",
+                performanceMedian,
+                MEDIAN_COLORS.performance
+              ),
+
+              createRunDataset(
+                "Accessibility",
+                sortedData.map(
+                  item => Number(item.accessibility)
+                ),
+                COLORS.accessibility
+              ),
+
+              createMedianDataset(
+                "Accessibility Tagesmedian",
+                accessibilityMedian,
+                MEDIAN_COLORS.accessibility
+              ),
+
+              createRunDataset(
+                "SEO",
+                sortedData.map(
+                  item => Number(item.seo)
+                ),
+                COLORS.seo
+              ),
+
+              createMedianDataset(
+                "SEO Tagesmedian",
+                seoMedian,
+                MEDIAN_COLORS.seo
+              ),
+
+              createRunDataset(
+                "Best Practices",
+                sortedData.map(
+                  item => Number(item.best_practices)
+                ),
+                COLORS.best_practices
+              ),
+
+              createMedianDataset(
+                "Best Practices Tagesmedian",
+                bestPracticesMedian,
+                MEDIAN_COLORS.best_practices
+              )
             ]
           },
 
@@ -670,10 +687,64 @@
               intersect: false
             },
 
+            plugins: {
+              legend: {
+                labels: {
+                  usePointStyle: true,
+                  boxWidth: 12
+                }
+              },
+
+              tooltip: {
+                callbacks: {
+                  afterBody: tooltipItems => {
+                    if (!tooltipItems.length) {
+                      return "";
+                    }
+
+                    const dataIndex =
+                      tooltipItems[0].dataIndex;
+
+                    const selectedDate =
+                      sortedData[dataIndex].date;
+
+                    const day =
+                      String(selectedDate).slice(
+                        0,
+                        10
+                      );
+
+                    const runs =
+                      getRunsForDay(
+                        sortedData,
+                        selectedDate
+                      );
+
+                    return [
+                      `Datum: ${day}`,
+                      `Messungen an diesem Tag: ${runs}`
+                    ];
+                  }
+                }
+              }
+            },
+
             scales: {
+              x: {
+                ticks: {
+                  maxRotation: 50,
+                  minRotation: 45,
+                  autoSkip: true,
+                  maxTicksLimit: 18
+                }
+              },
+
               y: {
                 min: 0,
-                max: 100
+                max: 100,
+                ticks: {
+                  stepSize: 10
+                }
               }
             }
           }
@@ -681,12 +752,57 @@
       });
     }
 
-    // Tabellen
+    function createRunDataset(
+      label,
+      values,
+      color
+    ) {
+      return {
+        label,
+        data: values,
+        borderColor: color,
+        backgroundColor: color,
+        borderWidth: 1.5,
+        pointRadius: 2,
+        pointHoverRadius: 5,
+        tension: 0.3,
+        fill: false,
+        order: 2
+      };
+    }
+
+    function createMedianDataset(
+      label,
+      values,
+      color
+    ) {
+      return {
+        label,
+        data: values,
+        borderColor: color,
+        backgroundColor: color,
+        borderWidth: 3,
+        borderDash: [8, 5],
+        pointRadius: 4,
+        pointHoverRadius: 7,
+        pointBackgroundColor: color,
+        pointBorderColor: "#ffffff",
+        pointBorderWidth: 1,
+        spanGaps: true,
+        tension: 0.2,
+        fill: false,
+        order: 1
+      };
+    }
+
     function buildAllTables(data) {
-      const container = document.getElementById("tables");
+      const container =
+        document.getElementById("tables");
 
       PAGES.forEach(page => {
-        const pageData = data.filter(item => item.page === page);
+        const pageData = data.filter(
+          item => item.page === page
+        );
 
         if (!pageData.length) {
           return;
@@ -694,8 +810,11 @@
 
         const id = safeid(page);
 
-        const sorted = [...pageData].sort((a, b) =>
-          String(b.date).localeCompare(String(a.date))
+        const sorted = [...pageData].sort(
+          (a, b) =>
+            String(b.date).localeCompare(
+              String(a.date)
+            )
         );
 
         state[id] = {
@@ -706,23 +825,25 @@
           all: pageData
         };
 
-        const wrap = document.createElement("div");
+        const wrap =
+          document.createElement("div");
+
         wrap.className = "table-wrap";
         wrap.id = `table-${id}`;
 
         wrap.innerHTML = `
-          <a class="back-top" href="#top">↑ Nach oben</a>
+          <a class="back-top" href="#top">
+            ↑ Nach oben
+          </a>
 
           <h3>
             ${page}
 
-            <span
-              style="
-                font-weight: normal;
-                color: #999;
-                font-size: 0.85rem;
-              "
-            >
+            <span style="
+              font-weight: normal;
+              color: #999;
+              font-size: 0.85rem;
+            ">
               (${pageData.length} Einträge gesamt)
             </span>
           </h3>
@@ -794,62 +915,90 @@
 
         container.appendChild(wrap);
 
-        ["from", "to", "search", "size"].forEach(key => {
-          document
-            .getElementById(`${key}-${id}`)
-            .addEventListener("input", () => applyFilter(id));
-        });
+        ["from", "to", "search", "size"].forEach(
+          key => {
+            document
+              .getElementById(`${key}-${id}`)
+              .addEventListener(
+                "input",
+                () => applyFilter(id)
+              );
+          }
+        );
 
-        wrap.querySelectorAll("th[data-col]").forEach(tableHeader => {
-          tableHeader.addEventListener("click", () => {
-            const currentState = state[id];
+        wrap
+          .querySelectorAll("th[data-col]")
+          .forEach(tableHeader => {
+            tableHeader.addEventListener(
+              "click",
+              () => {
+                const currentState =
+                  state[id];
 
-            if (currentState.sortCol === tableHeader.dataset.col) {
-              currentState.sortDir *= -1;
-            } else {
-              currentState.sortCol = tableHeader.dataset.col;
-              currentState.sortDir = -1;
-            }
+                if (
+                  currentState.sortCol ===
+                  tableHeader.dataset.col
+                ) {
+                  currentState.sortDir *= -1;
+                } else {
+                  currentState.sortCol =
+                    tableHeader.dataset.col;
 
-            sortAndRender(id);
+                  currentState.sortDir = -1;
+                }
+
+                sortAndRender(id);
+              }
+            );
           });
-        });
 
         renderTable(id);
       });
     }
 
     function applyFilter(id) {
-      const from = document.getElementById(`from-${id}`).value;
-      const to = document.getElementById(`to-${id}`).value;
+      const from =
+        document.getElementById(
+          `from-${id}`
+        ).value;
 
-      const search = document
-        .getElementById(`search-${id}`)
-        .value
-        .toLowerCase();
+      const to =
+        document.getElementById(
+          `to-${id}`
+        ).value;
+
+      const search =
+        document
+          .getElementById(`search-${id}`)
+          .value
+          .toLowerCase();
 
       const currentState = state[id];
 
-      currentState.filtered = currentState.all.filter(item => {
-        const dateString = String(item.date).slice(0, 10);
+      currentState.filtered =
+        currentState.all.filter(item => {
+          const dateString =
+            String(item.date).slice(0, 10);
 
-        if (from && dateString < from) {
-          return false;
-        }
+          if (from && dateString < from) {
+            return false;
+          }
 
-        if (to && dateString > to) {
-          return false;
-        }
+          if (to && dateString > to) {
+            return false;
+          }
 
-        if (
-          search &&
-          !String(item.date).toLowerCase().includes(search)
-        ) {
-          return false;
-        }
+          if (
+            search &&
+            !String(item.date)
+              .toLowerCase()
+              .includes(search)
+          ) {
+            return false;
+          }
 
-        return true;
-      });
+          return true;
+        });
 
       currentState.currentPage = 1;
 
@@ -860,8 +1009,11 @@
       const currentState = state[id];
 
       currentState.filtered.sort((a, b) => {
-        const firstValue = a[currentState.sortCol];
-        const secondValue = b[currentState.sortCol];
+        const firstValue =
+          a[currentState.sortCol];
+
+        const secondValue =
+          b[currentState.sortCol];
 
         if (
           typeof firstValue === "number" &&
@@ -875,9 +1027,10 @@
 
         return (
           currentState.sortDir *
-          String(firstValue ?? "").localeCompare(
-            String(secondValue ?? "")
-          )
+          String(firstValue ?? "")
+            .localeCompare(
+              String(secondValue ?? "")
+            )
         );
       });
 
@@ -888,13 +1041,17 @@
       const currentState = state[id];
 
       const pageSize = parseInt(
-        document.getElementById(`size-${id}`).value,
+        document.getElementById(
+          `size-${id}`
+        ).value,
         10
       );
 
-      const total = currentState.filtered.length;
+      const total =
+        currentState.filtered.length;
 
-      const totalPages = Math.ceil(total / pageSize) || 1;
+      const totalPages =
+        Math.ceil(total / pageSize) || 1;
 
       currentState.currentPage = Math.min(
         currentState.currentPage,
@@ -902,19 +1059,25 @@
       );
 
       const startIndex =
-        (currentState.currentPage - 1) * pageSize;
+        (currentState.currentPage - 1) *
+        pageSize;
 
-      const currentRows = currentState.filtered.slice(
-        startIndex,
-        startIndex + pageSize
-      );
+      const currentRows =
+        currentState.filtered.slice(
+          startIndex,
+          startIndex + pageSize
+        );
 
-      const tableBody = document.getElementById(`tbody-${id}`);
+      const tableBody =
+        document.getElementById(
+          `tbody-${id}`
+        );
 
       tableBody.innerHTML = "";
 
       currentRows.forEach(item => {
-        const row = document.createElement("tr");
+        const row =
+          document.createElement("tr");
 
         row.innerHTML = `
           <td>${item.date}</td>
@@ -947,10 +1110,16 @@
         tableBody.appendChild(row);
       });
 
-      document.getElementById(`count-${id}`).textContent =
-        `${total} Einträge · Seite ${currentState.currentPage} von ${totalPages}`;
+      document.getElementById(
+        `count-${id}`
+      ).textContent =
+        `${total} Einträge · Seite ` +
+        `${currentState.currentPage} von ${totalPages}`;
 
-      const pagination = document.getElementById(`pag-${id}`);
+      const pagination =
+        document.getElementById(
+          `pag-${id}`
+        );
 
       pagination.innerHTML = "";
 
@@ -959,24 +1128,35 @@
         pageNumber <= totalPages;
         pageNumber++
       ) {
-        const button = document.createElement("button");
+        const button =
+          document.createElement("button");
 
         button.textContent = pageNumber;
 
-        if (pageNumber === currentState.currentPage) {
+        if (
+          pageNumber ===
+          currentState.currentPage
+        ) {
           button.classList.add("active");
         }
 
-        button.addEventListener("click", () => {
-          currentState.currentPage = pageNumber;
-          renderTable(id);
-        });
+        button.addEventListener(
+          "click",
+          () => {
+            currentState.currentPage =
+              pageNumber;
+
+            renderTable(id);
+          }
+        );
 
         pagination.appendChild(button);
       }
 
       document
-        .querySelectorAll(`th[data-page="${id}"]`)
+        .querySelectorAll(
+          `th[data-page="${id}"]`
+        )
         .forEach(tableHeader => {
           tableHeader.classList.remove(
             "sorted-asc",
@@ -984,7 +1164,8 @@
           );
 
           if (
-            tableHeader.dataset.col === currentState.sortCol
+            tableHeader.dataset.col ===
+            currentState.sortCol
           ) {
             tableHeader.classList.add(
               currentState.sortDir === 1
